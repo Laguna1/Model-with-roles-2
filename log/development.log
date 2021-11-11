@@ -1194,3 +1194,17 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 39ms (Views: 26.4ms | ActiveRecord: 8.0ms | Allocations: 9603)
 
 
+  [1m[35m (23.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseTrackableColumnsToUsers (20211111183749)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (62.0ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" timestamp[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" timestamp[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111183749"]]
+  [1m[36mTRANSACTION (20.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (22.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
