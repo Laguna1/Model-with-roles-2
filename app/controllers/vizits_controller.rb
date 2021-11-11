@@ -1,5 +1,6 @@
 class VizitsController < ApplicationController
   before_action :set_vizit, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /vizits
   def index
