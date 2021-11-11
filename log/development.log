@@ -309,3 +309,71 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 1.5ms | Allocations: 5338)
 
 
+Started GET "/users" for ::1 at 2021-11-11 17:19:00 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1702)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 4787)
+Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 2.4ms | Allocations: 5299)
+
+
+Started GET "/" for ::1 at 2021-11-11 17:19:02 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 49.9ms | Allocations: 222)
+Completed 200 OK in 54ms (Views: 51.8ms | ActiveRecord: 0.0ms | Allocations: 937)
+
+
+Started GET "/users" for ::1 at 2021-11-11 17:19:04 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1126)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 4381)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 1.0ms | Allocations: 5476)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFieldsToUsers (20211111152024)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (97.8ms)[0m  [1m[35mALTER TABLE "users" ADD "mobile_no" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "address" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111152024"]]
+  [1m[36mTRANSACTION (306.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for ::1 at 2021-11-11 17:22:29 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 971)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 4224)
+Completed 200 OK in 19ms (Views: 14.3ms | ActiveRecord: 1.5ms | Allocations: 5796)
+
+
+Started GET "/users/new" for ::1 at 2021-11-11 17:22:31 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/users/_form.html.erb:31
+  Rendered users/_form.html.erb (Duration: 80.4ms | Allocations: 5025)
+  Rendered users/new.html.erb within layouts/application (Duration: 82.6ms | Allocations: 5361)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 89.9ms | Allocations: 8522)
+Completed 200 OK in 114ms (Views: 84.3ms | ActiveRecord: 13.2ms | Allocations: 12934)
+
+
