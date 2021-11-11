@@ -286,3 +286,26 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 85ms (Views: 80.6ms | ActiveRecord: 1.2ms | Allocations: 8478)
 
 
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (27.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Patient"], ["description", "Can create and read vizits. Can read own appointments"], ["created_at", "2021-11-11 15:16:57.765602"], ["updated_at", "2021-11-11 15:16:57.765602"]]
+  [1m[36mTRANSACTION (62.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (17.7ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Doctor"], ["description", "Can read vizits. Can create, read and update own appointments"], ["created_at", "2021-11-11 15:16:57.862196"], ["updated_at", "2021-11-11 15:16:57.862196"]]
+  [1m[36mTRANSACTION (29.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (0.5ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Admin"], ["description", "Can perform any CRUD operation on any resource"], ["created_at", "2021-11-11 15:16:57.917241"], ["updated_at", "2021-11-11 15:16:57.917241"]]
+  [1m[36mTRANSACTION (13.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/new" for ::1 at 2021-11-11 17:17:05 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/users/_form.html.erb:21
+  Rendered users/_form.html.erb (Duration: 9.5ms | Allocations: 1741)
+  Rendered users/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 1846)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 4943)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 1.5ms | Allocations: 5338)
+
+
