@@ -23,6 +23,7 @@ class VizitsController < ApplicationController
   # POST /vizits
   def create
     @vizit = Vizit.new(vizit_params)
+    @vizit.user_id = current_user.id
 
     if @vizit.save
       redirect_to @vizit, notice: 'Vizit was successfully created.'
