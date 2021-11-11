@@ -9,6 +9,11 @@ class RolesController < ApplicationController
 
   # GET /roles/1
   def show
+    if @role.users.empty?
+      @associated_user = 'None'
+    else
+      @associated_users = @role.users
+    end
   end
 
   # GET /roles/new

@@ -1,8 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @role.name %>
+</p>
+
+<ol>
+  <strong>Associated users:</strong>
+  
+  <% @associated_users.each do |au| %>
+     <li><%= link_to user_path(au) do %>
+        <%= au.fullname %>
+      <% end %>
+      </li>
+      
+  <% end %>
+  </ol>
 </p>
 
 <p>
