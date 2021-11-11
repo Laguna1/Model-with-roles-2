@@ -34,7 +34,9 @@ class User < ApplicationRecord
     self.role = Role.find_by name: 'Patient' if role.nil?
   end
 
-  def show_user_profile
+  def show_user_profile; end
 
+  def admin?
+    role.name == 'Admin'
   end
 end
