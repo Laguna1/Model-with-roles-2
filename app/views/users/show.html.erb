@@ -1,3 +1,5 @@
+<div><%= @user.role.name %>  page<h1><%= @user.fullname %></h1> profile</div>
+
 <p>
   <strong>Fullname:</strong>
   <%= @user.fullname %>
@@ -39,3 +41,27 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<br>
+<br>
+
+<small>It needs to add next time</small>
+
+<p>Find doctor</p>
+<p>My vizits</p>
+<p>My assignments</p>
+<br>
+
+
+<%= link_to 'Back', root_path %></p>
+<br>
+<br>
+<br>
+
+<p><% if @user.role.name == 'Patient'%>
+       <strong>it`ll render partial for Patient page</strong>
+    <% elsif @user.role.name == 'Doctor' %>
+       <%= link_to "Doctor page", '#' %>
+    <% else %>
+      <%= link_to "Admin page", '#' %>
+    <% end %>
+</p>

@@ -15,7 +15,10 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.fullname %></td>
+        <td><%= link_to user_path(user) do %>
+               <%= user.fullname %>
+            <% end %>
+        </td>
         <td><%= user.mobile_no %></td>
         <td><%= user.address %></td>
         <td><%= user.email %></td>
