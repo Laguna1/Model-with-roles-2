@@ -17,13 +17,19 @@
         <td><%= vizit.notes %></td>
         <td><%= vizit.user_id %></td>
         <td><%= link_to 'Show', vizit %></td>
-        <td><%= link_to 'Edit', edit_vizit_path(vizit) %></td>
-        <td><%= link_to 'Destroy', vizit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if can? :update, vizit %>
+              <%= link_to 'Edit', edit_vizit_path(vizit) %>
+            <% end %></td>
+        <td>
+          <% if can? :destroy, vizit %>
+            <%= link_to 'Destroy', vizit, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Vizit', new_vizit_path %>
+<% if can? :create, Vizit %>
+  <%= link_to 'New Vizit', new_vizit_path %>
+<% end %>

@@ -1704,3 +1704,183 @@ Processing by VizitsController#new as HTML
 Completed 200 OK in 107ms (Views: 96.7ms | ActiveRecord: 2.4ms | Allocations: 12558)
 
 
+Started GET "/" for ::1 at 2021-11-12 00:24:20 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (49.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRole Load (20.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:40:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (2.4ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:14
+  Rendered vizits/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 359.7ms | Allocations: 4659)
+Completed 200 OK in 1238ms (Views: 434.1ms | ActiveRecord: 388.2ms | Allocations: 22359)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-11-12 00:25:01 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34:in `assign_role'
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34:in `assign_role'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms (ActiveRecord: 5.3ms | Allocations: 4621)
+
+
+Started GET "/" for ::1 at 2021-11-12 00:25:01 +0200
+Processing by VizitsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 237)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-11-12 00:25:01 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 535)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 18.4ms | Allocations: 1818)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 5086)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.0ms | Allocations: 6613)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-12 00:25:09 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"mobile_no"=>"380661111111", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (59.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."mobile_no" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["mobile_no", "380661111111"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17:in `find_first_by_auth_conditions'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34:in `assign_role'
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34:in `assign_role'
+  [1m[36mUser Update (31.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3 WHERE "users"."id" = $4[0m  [["updated_at", "2021-11-11 22:25:10.221270"], ["sign_in_count", 2], ["current_sign_in_at", "2021-11-11 22:25:10.213357"], ["id", 2]]
+  [1m[36mTRANSACTION (39.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 500ms (ActiveRecord: 133.5ms | Allocations: 6813)
+
+
+Started GET "/" for ::1 at 2021-11-12 00:25:10 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:40:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (1.0ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:14
+  Rendered vizits/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 752)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3971)
+Completed 200 OK in 23ms (Views: 9.1ms | ActiveRecord: 3.4ms | Allocations: 6856)
+
+
+Started GET "/users/5" for ::1 at 2021-11-12 00:25:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users/5"):
+  
+Started GET "/" for ::1 at 2021-11-12 00:25:46 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:40:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (1.1ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:14
+  Rendered vizits/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 751)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3958)
+Completed 200 OK in 26ms (Views: 8.5ms | ActiveRecord: 4.9ms | Allocations: 6836)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-11-12 00:26:28 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34:in `assign_role'
+  [1m[36mRole Load (2.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34:in `assign_role'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 6.3ms | Allocations: 4327)
+
+
+Started GET "/" for ::1 at 2021-11-12 00:26:28 +0200
+Processing by VizitsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 233)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-11-12 00:26:28 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 148)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1013)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 4256)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 4857)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-12 00:27:13 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"mobile_no"=>"380501234567", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."mobile_no" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["mobile_no", "380501234567"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17:in `find_first_by_auth_conditions'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34:in `assign_role'
+  [1m[36mRole Load (1.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34:in `assign_role'
+  [1m[36mUser Update (23.9ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4, "current_sign_in_ip" = $5, "last_sign_in_ip" = $6 WHERE "users"."id" = $7[0m  [["updated_at", "2021-11-11 22:27:14.372864"], ["sign_in_count", 1], ["current_sign_in_at", "2021-11-11 22:27:14.366330"], ["last_sign_in_at", "2021-11-11 22:27:14.366330"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["id", 1]]
+  [1m[36mTRANSACTION (18.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 405ms (ActiveRecord: 46.6ms | Allocations: 5853)
+
+
+Started GET "/" for ::1 at 2021-11-12 00:27:14 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:40:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (1.0ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:14
+  Rendered vizits/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 786)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 56.8ms | Allocations: 3983)
+Completed 200 OK in 69ms (Views: 56.5ms | ActiveRecord: 3.7ms | Allocations: 6864)
+
+
+Started GET "/vizits/new" for ::1 at 2021-11-12 00:27:28 +0200
+Processing by VizitsController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:40:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/new.html.erb within layouts/application
+  Rendered vizits/_form.html.erb (Duration: 14.9ms | Allocations: 2840)
+  Rendered vizits/new.html.erb within layouts/application (Duration: 50.2ms | Allocations: 3180)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 55.6ms | Allocations: 6381)
+Completed 200 OK in 73ms (Views: 56.2ms | ActiveRecord: 2.2ms | Allocations: 11612)
+
+
+Started GET "/vizits/new" for ::1 at 2021-11-12 00:29:35 +0200
+Processing by VizitsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:40:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/new.html.erb within layouts/application
+  Rendered vizits/_form.html.erb (Duration: 4.9ms | Allocations: 2910)
+  Rendered vizits/new.html.erb within layouts/application (Duration: 48.6ms | Allocations: 3245)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 168.1ms | Allocations: 6842)
+Completed 200 OK in 900ms (Views: 890.2ms | ActiveRecord: 1.9ms | Allocations: 10475)
+
+
