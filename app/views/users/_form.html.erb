@@ -27,11 +27,21 @@
   </div>
 
   <div class="field">
+  <%= form.label :email %><br>
+  <%= form.text_field :email %>
+</div>
+
+  <div class="field">
     <%= form.label :role_id %>
     <%= collection_select(
       :user, :role_id, Role.all, :id, :name, { prompt: true }
     ) %>
   </div>
+
+  <div class="field">
+  <%= form.label :password %><br>
+  <%= form.password_field :password, placeholder: "Leave blank if unchanged" %>
+</div>
 
   <div class="actions">
     <%= form.submit %>
