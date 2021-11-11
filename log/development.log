@@ -478,3 +478,75 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 1054ms (Views: 895.4ms | ActiveRecord: 15.5ms | Allocations: 21961)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (0.9ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Patient"], ["description", "Can create and read vizits. Can read own appointments"], ["created_at", "2021-11-11 16:05:14.271452"], ["updated_at", "2021-11-11 16:05:14.271452"]]
+  [1m[36mTRANSACTION (145.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (0.6ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Doctor"], ["description", "Can read vizits. Can create, read and update own appointments"], ["created_at", "2021-11-11 16:05:14.424822"], ["updated_at", "2021-11-11 16:05:14.424822"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (0.5ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Admin"], ["description", "Can perform any CRUD operation on any resource"], ["created_at", "2021-11-11 16:05:14.435719"], ["updated_at", "2021-11-11 16:05:14.435719"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sally@example.com"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "role_id", "created_at", "updated_at", "mobile_no", "address", "email", "encrypted_password") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["fullname", "Sally Major"], ["role_id", 4], ["created_at", "2021-11-11 16:05:14.951385"], ["updated_at", "2021-11-11 16:05:14.951385"], ["mobile_no", "380501234567"], ["address", "Kharkiv, Danilevskogo str. 7"], ["email", "sally@example.com"], ["encrypted_password", "$2a$12$pKCaRsdTCowTJHJr54tnYugBXh5bD3D2gEqinlSaZCzVj4qFwZqXW"]]
+  [1m[36mTRANSACTION (18.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "role_id", "created_at", "updated_at", "mobile_no", "address", "email", "encrypted_password") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["fullname", "Sue Kostner"], ["role_id", 5], ["created_at", "2021-11-11 16:05:15.246970"], ["updated_at", "2021-11-11 16:05:15.246970"], ["mobile_no", "380661111111"], ["address", "Kharkiv, Danilevskogo str. 8"], ["email", "sue@example.com"], ["encrypted_password", "$2a$12$E3GWnX56SptlC1mVDG17Mu5hWeEMh3.lYDgY9DALBvJXHyfzx/v4m"]]
+  [1m[36mTRANSACTION (10.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kevin@example.com"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "role_id", "created_at", "updated_at", "mobile_no", "address", "email", "encrypted_password") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["fullname", "Kevin Spacy"], ["role_id", 5], ["created_at", "2021-11-11 16:05:15.530838"], ["updated_at", "2021-11-11 16:05:15.530838"], ["mobile_no", "380672222222"], ["address", "Kharkiv, Danilevskogo str. 9"], ["email", "kevin@example.com"], ["encrypted_password", "$2a$12$zHFbaK6YqC6q6DMdL2EgY.14Fh7xws1NRb2Ne9DXKQ8ejf5KtTTni"]]
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jack@example.com"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "role_id", "created_at", "updated_at", "mobile_no", "address", "email", "encrypted_password") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["fullname", "Jack Nortingen"], ["role_id", 6], ["created_at", "2021-11-11 16:05:15.822157"], ["updated_at", "2021-11-11 16:05:15.822157"], ["mobile_no", "380733333333"], ["address", "Kharkiv, Danilevskogo str. 17"], ["email", "jack@example.com"], ["encrypted_password", "$2a$12$0lkVNJeUe6.fYmjxoCQ2B.w0R14YSZvPmO/8utlnNc6yuj54yL9MC"]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/users/sign_in" for ::1 at 2021-11-11 18:06:12 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sally@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "sally@example.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 361ms (ActiveRecord: 18.6ms | Allocations: 9848)
+
+
+Started GET "/" for ::1 at 2021-11-11 18:06:12 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (2.0ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:14
+  Rendered vizits/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 983)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4191)
+Completed 200 OK in 71ms (Views: 9.5ms | ActiveRecord: 3.4ms | Allocations: 6859)
+
+
+Started GET "/users" for ::1 at 2021-11-11 18:06:42 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:20
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:20
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:20
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (Duration: 38.7ms | Allocations: 9233)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 12305)
+Completed 200 OK in 59ms (Views: 32.7ms | ActiveRecord: 17.1ms | Allocations: 14604)
+
+
