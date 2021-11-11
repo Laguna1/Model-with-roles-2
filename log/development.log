@@ -1,0 +1,445 @@
+  [1m[35m (76.5ms)[0m  [1m[35mCREATE DATABASE "model_with_roles_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "model_with_roles_test" ENCODING = 'unicode'[0m
+  [1m[35m (52.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (22.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20211111144727)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (795.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fullname" character varying, "role_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (2034.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "model_with_roles_development"[0m
+  [1m[35m (458.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "model_with_roles_test"[0m
+  [1m[35m (5829.3ms)[0m  [1m[35mCREATE DATABASE "model_with_roles_development" ENCODING = 'unicode'[0m
+  [1m[35m (3696.1ms)[0m  [1m[35mCREATE DATABASE "model_with_roles_test" ENCODING = 'unicode'[0m
+  [1m[35m (421.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (249.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (14.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20211111144727)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (139.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fullname" character varying, "role_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20211111144727)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (233.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fullname" character varying, "roles_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_960e7e39f4"
+FOREIGN KEY ("roles_id")
+  REFERENCES "roles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20211111144727)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (174.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fullname" character varying, "roles_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_960e7e39f4"
+FOREIGN KEY ("roles_id")
+  REFERENCES "roles" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRoles (20211111145614)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (132.6ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111145614"]]
+  [1m[36mTRANSACTION (18.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-11-11 14:56:26.123658"], ["updated_at", "2021-11-11 14:56:26.123658"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20211111145656)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (225.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fullname" character varying, "role_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+)[0m
+  [1m[35m (61.9ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111145656"]]
+  [1m[36mTRANSACTION (16.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVizits (20211111145745)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (120.9ms)[0m  [1m[35mCREATE TABLE "vizits" ("id" bigserial primary key, "date" timestamp, "notes" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c51359ca96"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (51.3ms)[0m  [1m[35mCREATE INDEX "index_vizits_on_user_id" ON "vizits" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111145745"]]
+  [1m[36mTRANSACTION (20.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for ::1 at 2021-11-11 16:59:32 +0200
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_in"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:51:in `set_user'
+Completed 404 Not Found in 81ms (ActiveRecord: 13.5ms | Allocations: 5280)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_in):
+  
+app/controllers/users_controller.rb:51:in `set_user'
+Started GET "/" for ::1 at 2021-11-11 17:00:19 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 502.7ms | Allocations: 226)
+Completed 200 OK in 522ms (Views: 503.9ms | ActiveRecord: 0.0ms | Allocations: 1002)
+
+
+Started GET "/users" for ::1 at 2021-11-11 17:00:37 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1307)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.5
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+  Rendered layout layouts/application.html.erb (Duration: 6129.1ms | Allocations: 26540)
+Completed 500 Internal Server Error in 6178ms (ActiveRecord: 1.2ms | Allocations: 28321)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/oksana/Model-with-roles-2/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users" for ::1 at 2021-11-11 17:07:34 +0200
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 31.2ms | Allocations: 1182)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/oksana/Model-with-roles-2/public/packs
+[Webpacker] Hash: e2a8a876c5815bee1e21
+Version: webpack 4.46.0
+Time: 2989ms
+Built at: 11/11/2021 5:07:42 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-e421b4aa3f716bebdab1.js    125 KiB  application  [emitted] [immutable]  application
+js/application-e421b4aa3f716bebdab1.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-e421b4aa3f716bebdab1.js js/application-e421b4aa3f716bebdab1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 7031.8ms | Allocations: 8400)
+Completed 200 OK in 7302ms (Views: 7084.3ms | ActiveRecord: 2.3ms | Allocations: 12071)
+
+
+Started GET "/users/new" for ::1 at 2021-11-11 17:07:47 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 662.1ms | Allocations: 4220)
+  Rendered users/new.html.erb within layouts/application (Duration: 693.8ms | Allocations: 5125)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 699.2ms | Allocations: 8209)
+Completed 200 OK in 726ms (Views: 701.4ms | ActiveRecord: 9.5ms | Allocations: 11688)
+
+
+Started GET "/roles" for ::1 at 2021-11-11 17:07:57 +0200
+Processing by RolesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/index.html.erb within layouts/application
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/roles/index.html.erb:15
+  Rendered roles/index.html.erb within layouts/application (Duration: 22.7ms | Allocations: 1146)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 28.1ms | Allocations: 4195)
+Completed 200 OK in 95ms (Views: 29.6ms | ActiveRecord: 1.9ms | Allocations: 5296)
+
+
+Started GET "/vizits" for ::1 at 2021-11-11 17:08:06 +0200
+Processing by VizitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (148.2ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:14
+  Rendered vizits/index.html.erb within layouts/application (Duration: 179.1ms | Allocations: 1150)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 187.0ms | Allocations: 4235)
+Completed 200 OK in 281ms (Views: 40.3ms | ActiveRecord: 148.2ms | Allocations: 5512)
+
+
+Started GET "/vizits/new" for ::1 at 2021-11-11 17:08:09 +0200
+Processing by VizitsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/new.html.erb within layouts/application
+  Rendered vizits/_form.html.erb (Duration: 141.5ms | Allocations: 3331)
+  Rendered vizits/new.html.erb within layouts/application (Duration: 163.1ms | Allocations: 4202)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 167.7ms | Allocations: 7300)
+Completed 200 OK in 187ms (Views: 168.5ms | ActiveRecord: 6.8ms | Allocations: 10860)
+
+
+Started GET "/vizits/new" for ::1 at 2021-11-11 17:11:45 +0200
+Processing by VizitsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/new.html.erb within layouts/application
+  Rendered vizits/_form.html.erb (Duration: 4.6ms | Allocations: 2770)
+  Rendered vizits/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3104)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 6358)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 7455)
+
+
+Started GET "/vizits" for ::1 at 2021-11-11 17:11:50 +0200
+Processing by VizitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (4.4ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:14
+  Rendered vizits/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1685)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 4770)
+Completed 200 OK in 22ms (Views: 15.6ms | ActiveRecord: 4.4ms | Allocations: 5289)
+
+
+Started GET "/roles" for ::1 at 2021-11-11 17:11:53 +0200
+Processing by RolesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/index.html.erb within layouts/application
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/roles/index.html.erb:15
+  Rendered roles/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1135)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 4231)
+Completed 200 OK in 19ms (Views: 15.3ms | ActiveRecord: 1.5ms | Allocations: 5121)
+
+
+Started GET "/roles/new" for ::1 at 2021-11-11 17:11:55 +0200
+Processing by RolesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/new.html.erb within layouts/application
+  Rendered roles/_form.html.erb (Duration: 30.0ms | Allocations: 1104)
+  Rendered roles/new.html.erb within layouts/application (Duration: 65.7ms | Allocations: 1435)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 71.1ms | Allocations: 4517)
+Completed 200 OK in 89ms (Views: 72.8ms | ActiveRecord: 5.2ms | Allocations: 7548)
+
+
+Started GET "/users/new" for ::1 at 2021-11-11 17:12:08 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/users/_form.html.erb:21
+  Rendered users/_form.html.erb (Duration: 68.0ms | Allocations: 4286)
+  Rendered users/new.html.erb within layouts/application (Duration: 69.2ms | Allocations: 4615)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 79.6ms | Allocations: 7600)
+Completed 200 OK in 85ms (Views: 80.6ms | ActiveRecord: 1.2ms | Allocations: 8478)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (27.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Patient"], ["description", "Can create and read vizits. Can read own appointments"], ["created_at", "2021-11-11 15:16:57.765602"], ["updated_at", "2021-11-11 15:16:57.765602"]]
+  [1m[36mTRANSACTION (62.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (17.7ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Doctor"], ["description", "Can read vizits. Can create, read and update own appointments"], ["created_at", "2021-11-11 15:16:57.862196"], ["updated_at", "2021-11-11 15:16:57.862196"]]
+  [1m[36mTRANSACTION (29.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (0.5ms)[0m  [1m[32mINSERT INTO "roles" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Admin"], ["description", "Can perform any CRUD operation on any resource"], ["created_at", "2021-11-11 15:16:57.917241"], ["updated_at", "2021-11-11 15:16:57.917241"]]
+  [1m[36mTRANSACTION (13.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/new" for ::1 at 2021-11-11 17:17:05 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/users/_form.html.erb:21
+  Rendered users/_form.html.erb (Duration: 9.5ms | Allocations: 1741)
+  Rendered users/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 1846)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 4943)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 1.5ms | Allocations: 5338)
+
+
+Started GET "/users" for ::1 at 2021-11-11 17:19:00 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1702)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 4787)
+Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 2.4ms | Allocations: 5299)
+
+
+Started GET "/" for ::1 at 2021-11-11 17:19:02 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 49.9ms | Allocations: 222)
+Completed 200 OK in 54ms (Views: 51.8ms | ActiveRecord: 0.0ms | Allocations: 937)
+
+
+Started GET "/users" for ::1 at 2021-11-11 17:19:04 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1126)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 4381)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 1.0ms | Allocations: 5476)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFieldsToUsers (20211111152024)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (97.8ms)[0m  [1m[35mALTER TABLE "users" ADD "mobile_no" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "address" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111152024"]]
+  [1m[36mTRANSACTION (306.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for ::1 at 2021-11-11 17:22:29 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 971)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 4224)
+Completed 200 OK in 19ms (Views: 14.3ms | ActiveRecord: 1.5ms | Allocations: 5796)
+
+
+Started GET "/users/new" for ::1 at 2021-11-11 17:22:31 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/users/_form.html.erb:31
+  Rendered users/_form.html.erb (Duration: 80.4ms | Allocations: 5025)
+  Rendered users/new.html.erb within layouts/application (Duration: 82.6ms | Allocations: 5361)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 89.9ms | Allocations: 8522)
+Completed 200 OK in 114ms (Views: 84.3ms | ActiveRecord: 13.2ms | Allocations: 12934)
+
+
+Started GET "/" for ::1 at 2021-11-11 17:23:50 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.2ms | Allocations: 218)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 865)
+
+
+Started GET "/users" for ::1 at 2021-11-11 17:23:51 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 897)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 3982)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 1.9ms | Allocations: 4374)
+
+
+Started GET "/vizits" for ::1 at 2021-11-11 17:24:00 +0200
+Processing by VizitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (1.1ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:14
+  Rendered vizits/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1117)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 4164)
+Completed 200 OK in 68ms (Views: 13.4ms | ActiveRecord: 1.1ms | Allocations: 5407)
+
+
+Started GET "/vizits/new" for ::1 at 2021-11-11 17:24:06 +0200
+Processing by VizitsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/new.html.erb within layouts/application
+  Rendered vizits/_form.html.erb (Duration: 6.1ms | Allocations: 2840)
+  Rendered vizits/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3169)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 6251)
+Completed 200 OK in 40ms (Views: 20.4ms | ActiveRecord: 6.4ms | Allocations: 10190)
+
+
+Started GET "/users" for ::1 at 2021-11-11 17:24:28 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 897)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 3982)
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 1.4ms | Allocations: 4374)
+
+
+Started GET "/users" for ::1 at 2021-11-11 17:26:23 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1164)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 4435)
+Completed 200 OK in 20ms (Views: 16.4ms | ActiveRecord: 1.8ms | Allocations: 5533)
+
+
