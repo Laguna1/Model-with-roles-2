@@ -9,8 +9,14 @@ class Ability
     #   user ||= User.new # guest user (not logged in)
     if user.admin?
       can :manage, :all
-    else
-      can :read, :all
+    elsif user.doctor?
+      can :read, Vizit
+      can :update, Vizit do |vizit|
+        vizit.try(:user) == user
+      end
+    elsif user.patient?
+      can :read, Vizit
+      can :create, Vizit
     end
     #
     # The first argument to `can` is the action you are giving the user
