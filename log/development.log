@@ -2904,3 +2904,47 @@ Processing by CategoriesController#index as HTML
 Completed 200 OK in 29ms (Views: 22.0ms | ActiveRecord: 5.7ms | Allocations: 6251)
 
 
+  [1m[35m (22.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (28.8ms)[0m  [1m[32mINSERT INTO "categories" ("speciality", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["speciality", "Therapist"], ["created_at", "2021-11-12 21:04:00.510308"], ["updated_at", "2021-11-12 21:04:00.510308"]]
+  [1m[36mTRANSACTION (36.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("speciality", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["speciality", "Surgeon"], ["created_at", "2021-11-12 21:04:00.582494"], ["updated_at", "2021-11-12 21:04:00.582494"]]
+  [1m[36mTRANSACTION (13.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("speciality", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["speciality", "Pediatrician"], ["created_at", "2021-11-12 21:04:00.603601"], ["updated_at", "2021-11-12 21:04:00.603601"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("speciality", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["speciality", "Gynecologist"], ["created_at", "2021-11-12 21:04:00.615552"], ["updated_at", "2021-11-12 21:04:00.615552"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("speciality", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["speciality", "Dentist"], ["created_at", "2021-11-12 21:04:00.626011"], ["updated_at", "2021-11-12 21:04:00.626011"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("speciality", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["speciality", "Dermatologist"], ["created_at", "2021-11-12 21:04:00.636648"], ["updated_at", "2021-11-12 21:04:00.636648"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (14.5ms)[0m  [1m[32mINSERT INTO "categories" ("speciality", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["speciality", "Ophthalmologist"], ["created_at", "2021-11-12 21:04:00.647776"], ["updated_at", "2021-11-12 21:04:00.647776"]]
+  [1m[36mTRANSACTION (34.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("speciality", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["speciality", "Urologist"], ["created_at", "2021-11-12 21:04:00.703482"], ["updated_at", "2021-11-12 21:04:00.703482"]]
+  [1m[36mTRANSACTION (14.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "categories" ("speciality", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["speciality", "Psychiatrist"], ["created_at", "2021-11-12 21:04:00.725263"], ["updated_at", "2021-11-12 21:04:00.725263"]]
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/categories" for ::1 at 2021-11-12 23:04:07 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:14
+  Rendered categories/index.html.erb within layouts/application (Duration: 32.2ms | Allocations: 5134)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 445.8ms | Allocations: 10324)
+Completed 200 OK in 495ms (Views: 446.6ms | ActiveRecord: 23.7ms | Allocations: 10727)
+
+
