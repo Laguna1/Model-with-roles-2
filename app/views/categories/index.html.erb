@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Categories</h1>
 
 <table>
@@ -24,4 +22,6 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<% if can? :create, @category %>
+  <%= link_to 'New Category', new_category_path %>
+<% end %>

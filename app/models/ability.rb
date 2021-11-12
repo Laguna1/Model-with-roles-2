@@ -10,11 +10,13 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.doctor?
+      can :read, Category
       can :read, Vizit
       can :update, Vizit do |vizit|
         vizit.try(:user) == user
       end
     elsif user.patient?
+      can :read, Category
       can :read, Vizit
       can :create, Vizit
     end
