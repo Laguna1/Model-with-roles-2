@@ -2763,3 +2763,37 @@ Processing by VizitsController#show as HTML
 Completed 200 OK in 166ms (Views: 117.5ms | ActiveRecord: 33.9ms | Allocations: 7933)
 
 
+Started GET "/vizits/1" for ::1 at 2021-11-12 19:28:26 +0200
+Processing by VizitsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mVizit Load (2.9ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits" WHERE "vizits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:40:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/show.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/show.html.erb:13
+  Rendered vizits/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1073)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 4724)
+Completed 200 OK in 44ms (Views: 18.3ms | ActiveRecord: 7.7ms | Allocations: 9146)
+
+
+Started GET "/vizits/1" for ::1 at 2021-11-12 19:29:17 +0200
+Processing by VizitsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mVizit Load (1.6ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits" WHERE "vizits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:40:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/show.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/show.html.erb:3
+  Rendered vizits/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1078)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 4724)
+Completed 200 OK in 63ms (Views: 34.0ms | ActiveRecord: 7.3ms | Allocations: 9140)
+
+

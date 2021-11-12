@@ -1,4 +1,9 @@
 <p>
+  <strong>User:</strong>
+  <%= @vizit.user.fullname %>
+</p>
+
+<p>
   <strong>Date:</strong>
   <%= @vizit.date %>
 </p>
@@ -8,10 +13,7 @@
   <%= @vizit.notes %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @vizit.user_id %>
-</p>
+
 
 <%= link_to 'Edit', edit_vizit_path(@vizit) %> |
 <%= link_to 'Back', vizits_path %>
