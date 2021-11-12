@@ -31,12 +31,21 @@
   <%= form.text_field :email %>
 </div>
 
+
   <div class="field">
     <%= form.label :role_id %>
     <%= collection_select(
       :user, :role_id, Role.all, :id, :name, { prompt: true }
     ) %>
   </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= collection_select(
+      :user, :category_id, Category.all, :id, :speciality, { prompt: true }
+    ) %>
+  </div>
+
 
   <div class="field">
   <%= form.label :password %><br>

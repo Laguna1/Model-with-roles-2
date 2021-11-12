@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :role, optional: true
+  belongs_to :category, optional: true
   has_many :vizits, dependent: :destroy
   validates :fullname, presence: true
   validates :email, uniqueness: true
