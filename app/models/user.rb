@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   belongs_to :role, optional: true
   has_many :vizits, dependent: :destroy
   validates :fullname, presence: true
@@ -33,7 +34,17 @@ class User < ApplicationRecord
     self.role = Role.find_by name: 'Patient' if role.nil?
   end
 
-  def user_profile
-    
+  def show_user_profile; end
+
+  def admin?
+    role.name == 'Admin'
+  end
+
+  def doctor?
+    role.name == 'Doctor'
+  end
+
+  def patient?
+    role.name == 'Patient'
   end
 end

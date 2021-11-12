@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /users
   def index
@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
   end
 
   # GET /users/1/edit
@@ -29,8 +28,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
-
+  
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'
     else
@@ -65,11 +63,7 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
-
+  
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:fullname, :role_id, :mobile_no, :address, :email, :password, :password_confirmation)

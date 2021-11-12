@@ -1,6 +1,6 @@
 class VizitsController < ApplicationController
-  before_action :set_vizit, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /vizits
   def index
@@ -13,7 +13,6 @@ class VizitsController < ApplicationController
 
   # GET /vizits/new
   def new
-    @vizit = Vizit.new
   end
 
   # GET /vizits/1/edit
@@ -22,8 +21,7 @@ class VizitsController < ApplicationController
 
   # POST /vizits
   def create
-    @vizit = Vizit.new(vizit_params)
-    @vizit.user_id = current_user.id
+   @vizit.user_id = current_user.id
 
     if @vizit.save
       redirect_to @vizit, notice: 'Vizit was successfully created.'
@@ -49,9 +47,6 @@ class VizitsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_vizit
-      @vizit = Vizit.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def vizit_params

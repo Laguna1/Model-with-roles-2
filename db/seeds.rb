@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Role.destroy.all
-User.destroy.all
+# Role.destroy.all
+# User.destroy.all
 
 # r1 = Role.create({ name: 'Patient', description: 'Can create and read vizits. Can read own appointments' })
 # r2 = Role.create({ name: 'Doctor', description: 'Can read vizits. Can create, read and update own appointments' })
@@ -16,3 +16,8 @@ User.destroy.all
 # u2 = User.create({ fullname: 'Sue Kostner', mobile_no: '380661111111', address: 'Kharkiv, Danilevskogo str. 8', email: 'sue@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r2.id })
 # u3 = User.create({ fullname: 'Kevin Spacy', mobile_no: '380672222222', address: 'Kharkiv, Danilevskogo str. 9', email: 'kevin@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r2.id })
 # u4 = User.create({ fullname: 'Jack Nortingen', mobile_no: '380733333333', address: 'Kharkiv, Danilevskogo str. 17', email: 'jack@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r3.id })
+
+v1 = Vizit.create({ date: '2021-12-10 11:00:00', notes: 'Headache', user_id: 1 })
+v2 = Vizit.create({ date: '2021-11-12 12:00:00', notes: 'Toothache', user_id: 6 })
+v3 = Vizit.create({ date: '2021-11-12 16:30:00', notes: 'Injury of the joints of the hand', user_id: 1 })
+v4 = Vizit.create({ date: '2021-11-15 15:45:00', notes: 'Stomach pain', user_id: 6 })
