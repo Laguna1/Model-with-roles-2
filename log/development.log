@@ -2797,3 +2797,110 @@ Processing by VizitsController#show as HTML
 Completed 200 OK in 63ms (Views: 34.0ms | ActiveRecord: 7.3ms | Allocations: 9140)
 
 
+  [1m[35m (26.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCategories (20211112192303)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1281.3ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "speciality" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211112192303"]]
+  [1m[36mTRANSACTION (24.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (72.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for ::1 at 2021-11-12 21:26:27 +0200
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.6ms | Allocations: 608)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 190.3ms | Allocations: 4788)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 793.2ms | Allocations: 18499)
+Completed 200 OK in 1077ms (Views: 926.7ms | ActiveRecord: 8.6ms | Allocations: 30329)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-12 21:26:46 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"mobile_no"=>"380733333333", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."mobile_no" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["mobile_no", "380733333333"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17:in `find_first_by_auth_conditions'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:34:in `assign_role'
+  [1m[36mRole Load (2.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:34:in `assign_role'
+  [1m[36mUser Update (28.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4 WHERE "users"."id" = $5[0m  [["updated_at", "2021-11-12 19:26:47.281526"], ["sign_in_count", 7], ["current_sign_in_at", "2021-11-12 19:26:47.108850"], ["last_sign_in_at", "2021-11-12 18:04:10.692745"], ["id", 4]]
+  [1m[36mTRANSACTION (25.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/vizits
+Completed 302 Found in 702ms (ActiveRecord: 68.5ms | Allocations: 13651)
+
+
+Started GET "/vizits" for ::1 at 2021-11-12 21:26:47 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:40:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (1.8ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:14
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:18
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:18
+  Rendered vizits/index.html.erb within layouts/application (Duration: 50.0ms | Allocations: 8663)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 101.0ms | Allocations: 11904)
+Completed 200 OK in 156ms (Views: 93.8ms | ActiveRecord: 11.7ms | Allocations: 15855)
+
+
+Started GET "/categories" for ::1 at 2021-11-12 21:27:04 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:14
+  Rendered categories/index.html.erb within layouts/application (Duration: 10.7ms | Allocations: 1137)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  [1m[36mRole Load (3.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 6021)
+Completed 200 OK in 34ms (Views: 23.1ms | ActiveRecord: 6.0ms | Allocations: 7219)
+
+
+Started GET "/categories/new" for ::1 at 2021-11-12 21:27:08 +0200
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 4.5ms | Allocations: 892)
+  Rendered categories/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1230)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 39.4ms | Allocations: 6166)
+Completed 200 OK in 60ms (Views: 33.4ms | ActiveRecord: 15.4ms | Allocations: 9367)
+
+
+Started GET "/categories" for ::1 at 2021-11-12 21:27:12 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:14
+  Rendered categories/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 905)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  [1m[36mRole Load (3.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 26.9ms | Allocations: 5834)
+Completed 200 OK in 29ms (Views: 22.0ms | ActiveRecord: 5.7ms | Allocations: 6251)
+
+
