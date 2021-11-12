@@ -66,11 +66,11 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    if doctor?
-      params.require(:user).permit(:fullname, :role_id, :category_id, :mobile_no, :address, :email, :password, :password_confirmation)
-    else
-      params.require(:user).permit(:fullname, :role_id, :mobile_no, :address, :email, :password, :password_confirmation)
-    end
+    # if doctor?
+    #   params.require(:user).permit(:fullname, :role_id, :category_id, :mobile_no, :address, :email, :password, :password_confirmation)
+    # else
+       params.require(:user).permit(:fullname, :role_id, :mobile_no, :address, :email, :password, :password_confirmation, :category_id)
+    # end
   end
 
   def needs_password?(_user, params)
