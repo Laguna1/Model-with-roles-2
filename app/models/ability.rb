@@ -17,7 +17,6 @@ class Ability
         vizit.try(:user) == user
       end
     elsif user.patient?
-      can :read, User
       can :read, Category
       can :read, Vizit
       can :create, Vizit

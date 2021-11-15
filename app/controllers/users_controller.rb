@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     # if doctor?
     #   params.require(:user).permit(:fullname, :role_id, :category_id, :mobile_no, :address, :email, :password, :password_confirmation)
     # else
-       params.require(:user).permit(:fullname, :role_id, :mobile_no, :address, :email, :password, :password_confirmation, :category_id)
+    params.require(:user).permit(:fullname, :role_id, :mobile_no, :address, :email, :password, :password_confirmation, :category_id)
     # end
   end
 

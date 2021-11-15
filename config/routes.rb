@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   devise_for :users
   resources :users, only: 'show'
 
   scope '/admin' do
     resources :users
   end
-  root 'vizits#index'
   resources :vizits
   resources :roles
   resources :categories
