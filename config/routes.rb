@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'vizits#index'
   devise_for :users
-  resources :users, only: 'show'
+  resources :users, only: %i[show update]
 
   scope '/admin' do
     resources :users
