@@ -15,7 +15,7 @@
     <header>
       <% if user_signed_in? %>
         Signed in as: <%= current_user.fullname %> "<%= current_user.role.name %>"<br>
-        <%= link_to "My Profile Page", current_user %>
+        <%= link_to "My Profile Page", current_user %><br>
         Not you?
         <%= link_to "Edit registration", edit_user_registration_path %>
         <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
@@ -25,7 +25,6 @@
       <% end %>
 
       <nav>
-        
         <% if @current_user&.admin? %>
           <%= link_to "Categories", categories_path %> |
           <%= link_to "Roles", roles_path %> |

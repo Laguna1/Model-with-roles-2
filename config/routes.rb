@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'vizits#index'
   devise_for :users
   resources :users, only: 'show'
 
