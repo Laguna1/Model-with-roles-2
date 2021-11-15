@@ -19,9 +19,12 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
 <p>
+<% if @current_user&.admin? %>
   <strong>Role:</strong>
   <%= @user.role.name %>
+  <% end %>
 </p>
 
 <p>
