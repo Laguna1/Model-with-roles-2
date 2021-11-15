@@ -9,6 +9,9 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
+    @category = Category.find(params[:id])
+    @user = User.new
+    @user.category_id = @category.id
   end
 
   # GET /categories/new
