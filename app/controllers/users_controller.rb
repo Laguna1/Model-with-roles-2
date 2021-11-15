@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @user = User.find(params[:id])
     @joined_on = @user.created_at.to_formatted_s(:short)
 
     if @user.current_sign_in_at

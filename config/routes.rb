@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: 'show'
+
   scope '/admin' do
     resources :users
   end
