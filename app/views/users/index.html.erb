@@ -40,4 +40,7 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<% if can? :create, @user %>
+  <%= link_to 'New User', new_user_path %>
+<% end %>
+

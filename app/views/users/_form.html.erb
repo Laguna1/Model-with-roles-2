@@ -31,7 +31,7 @@
   <%= form.text_field :email %>
 </div>
 
-<% if !user.admin? %>           
+<% if @current_user&.admin? %>           
   <div class="field">
     <%= form.label :role_id %>
     <%= collection_select(
