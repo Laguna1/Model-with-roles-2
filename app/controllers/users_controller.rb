@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @user = User.find(params[:id])
     @joined_on = @user.created_at.to_formatted_s(:short)
 
     if @user.current_sign_in_at
@@ -63,13 +64,17 @@ class UsersController < ApplicationController
   end
 
   private
-  
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:fullname, :role_id, :mobile_no, :address, :email, :password, :password_confirmation)
-    end
 
-    def needs_password?(_user, params)
-      params[:password].present?
-    end
+  # Only allow a list of trusted parameters through.
+  def user_params
+    # if doctor?
+    #   params.require(:user).permit(:fullname, :role_id, :category_id, :mobile_no, :address, :email, :password, :password_confirmation)
+    # else
+    params.require(:user).permit(:fullname, :role_id, :mobile_no, :address, :email, :password, :password_confirmation, :category_id)
+    # end
+  end
+
+  def needs_password?(_user, params)
+    params[:password].present?
+  end
 end

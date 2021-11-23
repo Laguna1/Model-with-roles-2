@@ -11,7 +11,9 @@
   </thead>
 
   <tbody>
+  
     <% @vizits.each do |vizit| %>
+    <% if current_user.id == vizit.user_id %>
       <tr>
         <td><%= vizit.date %></td>
         <td><%= vizit.notes %></td>
@@ -25,6 +27,21 @@
             <%= link_to 'Destroy', vizit, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %></td>
       </tr>
+    <% elsif current_user.admin?%>
+    <tr>
+        <td><%= vizit.date %></td>
+        <td><%= vizit.notes %></td>
+        <td><%= vizit.user.fullname %></td>
+        <td><%= link_to 'Show', vizit %></td>
+        <td><% if can? :update, vizit %>
+              <%= link_to 'Edit', edit_vizit_path(vizit) %>
+            <% end %></td>
+        <td>
+          <% if can? :destroy, vizit %>
+            <%= link_to 'Destroy', vizit, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %></td>
+      </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>

@@ -1,5 +1,5 @@
-<div><%= @user.role.name %>  page<h1><%= @user.fullname %></h1> profile</div>
-
+<div>Profile  page<h2><%= @user.fullname %></h2></div>
+<h3>General Info</h3>
 <p>
   <strong>Fullname:</strong>
   <%= @user.fullname %>
@@ -19,9 +19,19 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
 <p>
+<% if @current_user&.admin? %>
   <strong>Role:</strong>
   <%= @user.role.name %>
+  <% end %>
+</p>
+
+<p>
+<% if @user.role.name == 'Doctor'%>
+  <strong>Speciality:</strong>
+  <%= @user.category.speciality %>
+  <% end %>
 </p>
 
 <p>
@@ -44,23 +54,11 @@
 <br>
 <br>
 
-<small>It needs to add next time</small>
-
-<p>Find doctor</p>
-<p>My vizits</p>
-<p>My assignments</p>
-<br>
-
-
-<%= link_to 'Back', root_path %></p>
-<br>
-<br>
-<br>
 
 <p><% if @user.role.name == 'Patient'%>
-       <strong>it`ll render partial for Patient page</strong>
+       <%= render 'patient_form' %>
     <% elsif @user.role.name == 'Doctor' %>
-       <%= link_to "Doctor page", '#' %>
+       <%= render 'doctor_form' %>
     <% else %>
       <%= link_to "Admin page", '#' %>
     <% end %>
