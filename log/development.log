@@ -16904,3 +16904,1123 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 90ms (Views: 55.9ms | ActiveRecord: 21.1ms | Allocations: 19557)
 
 
+Started DELETE "/users/sign_out" for ::1 at 2021-11-24 00:59:38 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:38:in `assign_role'
+  [1m[36mRole Load (2.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:38:in `assign_role'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 33ms (ActiveRecord: 9.4ms | Allocations: 4760)
+
+
+Started GET "/" for ::1 at 2021-11-24 00:59:38 +0200
+Processing by VizitsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 243)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-11-24 00:59:38 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.6ms | Allocations: 538)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 28.5ms | Allocations: 1861)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 40.0ms | Allocations: 5299)
+Completed 200 OK in 47ms (Views: 45.6ms | ActiveRecord: 0.0ms | Allocations: 6832)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-24 00:59:45 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"mobile_no"=>"380501234567", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."mobile_no" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["mobile_no", "380501234567"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `find_first_by_auth_conditions'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:38:in `assign_role'
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:38:in `assign_role'
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4 WHERE "users"."id" = $5[0m  [["updated_at", "2021-11-23 22:59:45.734539"], ["sign_in_count", 24], ["current_sign_in_at", "2021-11-23 22:59:45.725785"], ["last_sign_in_at", "2021-11-23 20:54:45.645298"], ["id", 1]]
+  [1m[36mTRANSACTION (14.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 475ms (ActiveRecord: 21.2ms | Allocations: 6876)
+
+
+Started GET "/" for ::1 at 2021-11-24 00:59:45 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (2.2ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:15
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:20
+  Rendered vizits/index.html.erb within layouts/application (Duration: 15.7ms | Allocations: 3055)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 6473)
+Completed 200 OK in 40ms (Views: 22.4ms | ActiveRecord: 7.8ms | Allocations: 9963)
+
+
+Started GET "/" for ::1 at 2021-11-24 01:12:31 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (1.6ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:15
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:20
+  Rendered vizits/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 3056)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 272.9ms | Allocations: 7008)
+Completed 200 OK in 805ms (Views: 419.8ms | ActiveRecord: 187.9ms | Allocations: 14085)
+
+
+Started GET "/admin/users" for ::1 at 2021-11-24 01:12:37 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (2.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 21.0ms | Allocations: 1554)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 1619)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 4.0ms | Allocations: 5070)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if current_user.patient? %>
+  <%= render '/doctors_list' %>
+<% else %>
+
+  <h1>Users</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fullname</th>
+        <th>Mobile number</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Category</th>
+        <th></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user_path(user) do %>
+                <%= user.fullname %>
+              <% end %>
+          </td>
+          <td><%= user.mobile_no %></td>
+          <td><%= user.address %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role.name %></td>
+          <td><% if user.category != nil %>
+              <%= user.category.speciality %>
+                <% else %>
+                <%= '' %>
+              <% end %>
+          </td>
+          <td>
+            <% if current_user.id != user.id && user.doctor? %>
+      <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+        <%= link_to user_contacts_path(user), method: :post do %>
+          <button class= "btn btn-warning"> Send Contact Request? </button>
+        <% end %>
+      <% else %> <!-- If user not a friend and a request has been recieved -->
+        <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
+      <% end %>
+          </td>
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <% if can? :create, @user %>
+    <%= link_to 'New User', new_user_path %>
+  <% end %>
+<% end %>
+
+):
+1:    <% if current_user.patient? %>
+2:      <%= render '/doctors_list' %>
+3:    <% else %>
+4:    
+5:      <h1>Users</h1>
+6:    
+7:      <table>
+8:        <thead>
+9:          <tr>
+10:            <th>Fullname</th>
+11:            <th>Mobile number</th>
+12:            <th>Address</th>
+13:            <th>Email</th>
+14:            <th>Role</th>
+15:            <th>Category</th>
+16:            <th></th>
+17:            <th colspan="3"></th>
+18:          </tr>
+19:        </thead>
+20:    
+21:        <tbody>
+22:          <% @users.each do |user| %>
+23:            <tr>
+24:              <td><%= link_to user_path(user) do %>
+25:                    <%= user.fullname %>
+26:                  <% end %>
+27:              </td>
+28:              <td><%= user.mobile_no %></td>
+29:              <td><%= user.address %></td>
+30:              <td><%= user.email %></td>
+31:              <td><%= user.role.name %></td>
+32:              <td><% if user.category != nil %>
+33:                  <%= user.category.speciality %>
+34:                    <% else %>
+35:                    <%= '' %>
+36:                  <% end %>
+37:              </td>
+38:              <td>
+39:                <% if current_user.id != user.id && user.doctor? %>
+40:          <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+41:            <%= link_to user_contacts_path(user), method: :post do %>
+42:              <button class= "btn btn-warning"> Send Contact Request? </button>
+43:            <% end %>
+44:          <% else %> <!-- If user not a friend and a request has been recieved -->
+45:            <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
+46:          <% end %>
+47:              </td>
+48:              <td><%= link_to 'Show', user %></td>
+49:              <td><%= link_to 'Edit', edit_user_path(user) %></td>
+50:              <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+51:            </tr>
+52:          <% end %>
+53:        </tbody>
+54:      </table>
+55:    
+56:      <br>
+57:    
+58:      <% if can? :create, @user %>
+59:        <%= link_to 'New User', new_user_path %>
+60:      <% end %>
+61:    <% end %>
+  
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/" for ::1 at 2021-11-24 01:12:43 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (5.6ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:15
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:20
+  Rendered vizits/index.html.erb within layouts/application (Duration: 19.3ms | Allocations: 2545)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 5977)
+Completed 200 OK in 52ms (Views: 22.3ms | ActiveRecord: 11.0ms | Allocations: 8881)
+
+
+Started GET "/" for ::1 at 2021-11-24 01:14:23 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (2.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (1.2ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:15
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:20
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:20
+  Rendered vizits/index.html.erb within layouts/application (Duration: 17.7ms | Allocations: 3053)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 28.8ms | Allocations: 7027)
+Completed 200 OK in 49ms (Views: 28.5ms | ActiveRecord: 8.1ms | Allocations: 10732)
+
+
+Started GET "/admin/users" for ::1 at 2021-11-24 01:14:32 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1554)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 1619)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 3.5ms | Allocations: 5064)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if current_user.patient? %>
+  <%= render '/doctors_list' %>
+<% else %>
+
+  <h1>Users</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fullname</th>
+        <th>Mobile number</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Category</th>
+        <th></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user_path(user) do %>
+                <%= user.fullname %>
+              <% end %>
+          </td>
+          <td><%= user.mobile_no %></td>
+          <td><%= user.address %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role.name %></td>
+          <td><% if user.category != nil %>
+              <%= user.category.speciality %>
+                <% else %>
+                <%= '' %>
+              <% end %>
+          </td>
+          <td>
+            <% if current_user.id != user.id && user.doctor? %>
+      <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+        <%= link_to user_contacts_path(user), method: :post do %>
+          <button class= "btn btn-warning"> Send Contact Request? </button>
+        <% end %>
+      <% else %> <!-- If user not a friend and a request has been recieved -->
+        <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
+      <% end %>
+          </td>
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <% if can? :create, @user %>
+    <%= link_to 'New User', new_user_path %>
+  <% end %>
+<% end %>
+
+):
+1:    <% if current_user.patient? %>
+2:      <%= render '/doctors_list' %>
+3:    <% else %>
+4:    
+5:      <h1>Users</h1>
+6:    
+7:      <table>
+8:        <thead>
+9:          <tr>
+10:            <th>Fullname</th>
+11:            <th>Mobile number</th>
+12:            <th>Address</th>
+13:            <th>Email</th>
+14:            <th>Role</th>
+15:            <th>Category</th>
+16:            <th></th>
+17:            <th colspan="3"></th>
+18:          </tr>
+19:        </thead>
+20:    
+21:        <tbody>
+22:          <% @users.each do |user| %>
+23:            <tr>
+24:              <td><%= link_to user_path(user) do %>
+25:                    <%= user.fullname %>
+26:                  <% end %>
+27:              </td>
+28:              <td><%= user.mobile_no %></td>
+29:              <td><%= user.address %></td>
+30:              <td><%= user.email %></td>
+31:              <td><%= user.role.name %></td>
+32:              <td><% if user.category != nil %>
+33:                  <%= user.category.speciality %>
+34:                    <% else %>
+35:                    <%= '' %>
+36:                  <% end %>
+37:              </td>
+38:              <td>
+39:                <% if current_user.id != user.id && user.doctor? %>
+40:          <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+41:            <%= link_to user_contacts_path(user), method: :post do %>
+42:              <button class= "btn btn-warning"> Send Contact Request? </button>
+43:            <% end %>
+44:          <% else %> <!-- If user not a friend and a request has been recieved -->
+45:            <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
+46:          <% end %>
+47:              </td>
+48:              <td><%= link_to 'Show', user %></td>
+49:              <td><%= link_to 'Edit', edit_user_path(user) %></td>
+50:              <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+51:            </tr>
+52:          <% end %>
+53:        </tbody>
+54:      </table>
+55:    
+56:      <br>
+57:    
+58:      <% if can? :create, @user %>
+59:        <%= link_to 'New User', new_user_path %>
+60:      <% end %>
+61:    <% end %>
+  
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:63: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/admin/users" for ::1 at 2021-11-24 01:15:12 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (3.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 1998)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 2062)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 5.9ms | Allocations: 5732)
+
+
+  
+ActionView::Template::Error (Missing partial /_doctors_list with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}. Searched in:
+  * "/home/oksana/Model-with-roles-2/app/views"
+  * "/home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/devise-4.8.0/app/views"
+  * "/home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/actiontext-6.1.4.1/app/views"
+  * "/home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/actionmailbox-6.1.4.1/app/views"
+):
+    1: <% if current_user.patient? %>
+    2:   <%= render '/doctors_list' %>
+    3: <% else %>
+    4: 
+    5:   <h1>Users</h1>
+  
+app/views/users/index.html.erb:2
+Started GET "/admin/users" for ::1 at 2021-11-24 01:15:27 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/_doctors_list.html.erb (Duration: 26.0ms | Allocations: 1521)
+  Rendered users/index.html.erb within layouts/application (Duration: 28.1ms | Allocations: 2303)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 2368)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 2.0ms | Allocations: 6038)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Our Doctors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fullname</th>
+      <th>Category</th>
+      <th></th>
+      <th>Mobile number</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user_path(user) do %>
+               <%= user.fullname %>
+            <% end %>
+        </td>
+       <td><% if user.category != nil %>
+            <%= user.category.speciality %>
+              <% else %>
+              <%= '' %>
+            <% end %>
+        </td>
+        <td>
+          <% if current_user.id != user.id && user.doctor? %>
+    <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+      <%= link_to user_contacts_path(user), method: :post do %>
+        <button class= "btn btn-warning"> Send Contact Request? </button>
+      <% end %>
+    <% else %> <!-- If user not a friend and a request has been recieved -->
+      <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
+    <% end %>
+        </td>
+        <td><%= user.mobile_no %></td>
+        <td><%= link_to 'Show', user %></td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+
+):
+1:    <h1>Our Doctors</h1>
+2:    
+3:    <table>
+4:      <thead>
+5:        <tr>
+6:          <th>Fullname</th>
+7:          <th>Category</th>
+8:          <th></th>
+9:          <th>Mobile number</th>
+10:          
+11:          <th colspan="3"></th>
+12:        </tr>
+13:      </thead>
+14:    
+15:      <tbody>
+16:        <% @users.each do |user| %>
+17:          <tr>
+18:            <td><%= link_to user_path(user) do %>
+19:                   <%= user.fullname %>
+20:                <% end %>
+21:            </td>
+22:           <td><% if user.category != nil %>
+23:                <%= user.category.speciality %>
+24:                  <% else %>
+25:                  <%= '' %>
+26:                <% end %>
+27:            </td>
+28:            <td>
+29:              <% if current_user.id != user.id && user.doctor? %>
+30:        <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+31:          <%= link_to user_contacts_path(user), method: :post do %>
+32:            <button class= "btn btn-warning"> Send Contact Request? </button>
+33:          <% end %>
+34:        <% else %> <!-- If user not a friend and a request has been recieved -->
+35:          <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
+36:        <% end %>
+37:            </td>
+38:            <td><%= user.mobile_no %></td>
+39:            <td><%= link_to 'Show', user %></td>
+40:         </tr>
+41:        <% end %>
+42:      </tbody>
+43:    </table>
+  
+app/views/users/_doctors_list.html.erb:46: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/_doctors_list.html.erb:46: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/_doctors_list.html.erb:46: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/_doctors_list.html.erb:46: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/_doctors_list.html.erb:46: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/_doctors_list.html.erb:46: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:2
+Started GET "/admin/users" for ::1 at 2021-11-24 01:15:55 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_doctors_list.html.erb:16
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:22
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mContact Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 9], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (2.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:22
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mContact Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:22
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mContact Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 7], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:22
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mContact Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 3], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  Rendered users/_doctors_list.html.erb (Duration: 73.5ms | Allocations: 12809)
+  Rendered users/index.html.erb within layouts/application (Duration: 78.9ms | Allocations: 13586)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 88.0ms | Allocations: 17579)
+Completed 200 OK in 104ms (Views: 70.3ms | ActiveRecord: 22.4ms | Allocations: 21277)
+
+
+Started GET "/admin/users" for ::1 at 2021-11-24 01:16:42 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (2.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_doctors_list.html.erb:16
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (3.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:22
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mContact Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 9], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mRole Load (2.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (2.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:22
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mContact Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCategory Load (2.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:22
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mContact Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 7], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:22
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mContact Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 3], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  Rendered users/_doctors_list.html.erb (Duration: 79.3ms | Allocations: 12800)
+  Rendered users/index.html.erb within layouts/application (Duration: 82.2ms | Allocations: 13576)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 99.4ms | Allocations: 17548)
+Completed 200 OK in 122ms (Views: 78.5ms | ActiveRecord: 28.9ms | Allocations: 21240)
+
+
+Started GET "/users/9" for ::1 at 2021-11-24 01:17:13 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRole Load (1.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:31
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:33
+  Rendered users/_doctor_form.html.erb (Duration: 1.2ms | Allocations: 111)
+  Rendered users/show.html.erb within layouts/application (Duration: 63.8ms | Allocations: 3030)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 74.6ms | Allocations: 6460)
+Completed 200 OK in 99ms (Views: 71.9ms | ActiveRecord: 9.7ms | Allocations: 10803)
+
+
+Started GET "/admin/users" for ::1 at 2021-11-24 01:19:08 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_doctors_list.html.erb:16
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (1.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 9], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (4.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 7], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 3], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  Rendered users/_doctors_list.html.erb (Duration: 73.7ms | Allocations: 13262)
+  Rendered users/index.html.erb within layouts/application (Duration: 76.3ms | Allocations: 14042)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 168.2ms | Allocations: 18035)
+Completed 200 OK in 191ms (Views: 148.1ms | ActiveRecord: 25.5ms | Allocations: 21734)
+
+
+Started GET "/admin/users" for ::1 at 2021-11-24 01:19:35 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (2.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_doctors_list.html.erb:16
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mRole Load (2.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (3.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 9], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mRole Load (3.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 7], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 3], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  Rendered users/_doctors_list.html.erb (Duration: 85.1ms | Allocations: 13254)
+  Rendered users/index.html.erb within layouts/application (Duration: 87.1ms | Allocations: 14030)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 98.7ms | Allocations: 18002)
+Completed 200 OK in 123ms (Views: 76.9ms | ActiveRecord: 28.9ms | Allocations: 21694)
+
+
+Started GET "/admin/users" for ::1 at 2021-11-24 01:20:28 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (3.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_doctors_list.html.erb:16
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (3.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 9], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 7], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 3], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  Rendered users/_doctors_list.html.erb (Duration: 76.5ms | Allocations: 13254)
+  Rendered users/index.html.erb within layouts/application (Duration: 78.9ms | Allocations: 14030)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 92.6ms | Allocations: 18035)
+Completed 200 OK in 116ms (Views: 72.3ms | ActiveRecord: 28.3ms | Allocations: 21727)
+
+
+Started GET "/users/1" for ::1 at 2021-11-24 01:20:32 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (2.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:31
+  Rendered users/_patient_form.html.erb (Duration: 20.3ms | Allocations: 152)
+  Rendered users/show.html.erb within layouts/application (Duration: 26.1ms | Allocations: 1456)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 4899)
+Completed 200 OK in 67ms (Views: 46.9ms | ActiveRecord: 4.8ms | Allocations: 9111)
+
+
+Started GET "/categories" for ::1 at 2021-11-24 01:20:35 +0200
+Started GET "/categories" for ::1 at 2021-11-24 01:20:36 +0200
+Processing by CategoriesController#index as HTML
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (5.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:12
+  Rendered categories/index.html.erb within layouts/application (Duration: 28.6ms | Allocations: 5373)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mRole Load (14.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendered layout layouts/application.html.erb (Duration: 39.9ms | Allocations: 8950)
+  Rendering categories/index.html.erb within layouts/application
+Completed 200 OK in 72ms (Views: 45.6ms | ActiveRecord: 9.0ms | Allocations: 14782)
+
+
+  [1m[36mCategory Load (45.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:12
+  Rendered categories/index.html.erb within layouts/application (Duration: 49.2ms | Allocations: 2135)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.1ms | Allocations: 5646)
+Completed 200 OK in 132ms (Views: 18.3ms | ActiveRecord: 86.0ms | Allocations: 20122)
+
+
+Started GET "/categories/1" for ::1 at 2021-11-24 01:20:41 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/categories/show.html.erb:9
+  Rendered categories/show.html.erb within layouts/application (Duration: 60.1ms | Allocations: 2483)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 68.8ms | Allocations: 5816)
+Completed 200 OK in 91ms (Views: 66.2ms | ActiveRecord: 8.9ms | Allocations: 9747)
+
+
+Started GET "/categories" for ::1 at 2021-11-24 01:20:45 +0200
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (2.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:12
+  Rendered categories/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1294)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 4747)
+Completed 200 OK in 35ms (Views: 16.5ms | ActiveRecord: 5.4ms | Allocations: 7658)
+
+
+Started GET "/categories/1" for ::1 at 2021-11-24 01:20:50 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (1.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/categories/show.html.erb:9
+  Rendered categories/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 941)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 4363)
+Completed 200 OK in 32ms (Views: 14.3ms | ActiveRecord: 6.2ms | Allocations: 8046)
+
+
+Started GET "/categories" for ::1 at 2021-11-24 01:20:52 +0200
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (5.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:12
+  Rendered categories/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1292)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 4724)
+Completed 200 OK in 35ms (Views: 16.0ms | ActiveRecord: 9.5ms | Allocations: 7634)
+
+
+Started GET "/admin/users" for ::1 at 2021-11-24 01:21:02 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (2.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_doctors_list.html.erb:16
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mRole Load (2.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (2.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 9], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mRole Load (4.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (3.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 7], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 3], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  Rendered users/_doctors_list.html.erb (Duration: 88.4ms | Allocations: 13415)
+  Rendered users/index.html.erb within layouts/application (Duration: 89.1ms | Allocations: 13507)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 100.0ms | Allocations: 16948)
+Completed 200 OK in 119ms (Views: 74.1ms | ActiveRecord: 33.1ms | Allocations: 19851)
+
+
+Started POST "/users/9/contacts" for ::1 at 2021-11-24 01:21:10 +0200
+Processing by ContactsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"9"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/contacts_controller.rb:4:in `create'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:4:in `create'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:4:in `create'
+  [1m[36mContact Create (33.8ms)[0m  [1m[32mINSERT INTO "contacts" ("doctor_id", "patient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["doctor_id", 9], ["patient_id", 1], ["created_at", "2021-11-23 23:21:10.617844"], ["updated_at", "2021-11-23 23:21:10.617844"]]
+  ↳ app/controllers/contacts_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (35.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/contacts_controller.rb:4:in `create'
+Redirected to http://localhost:3000/admin/users
+Completed 302 Found in 134ms (ActiveRecord: 76.1ms | Allocations: 5564)
+
+
+Started GET "/admin/users" for ::1 at 2021-11-24 01:21:10 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (5.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_doctors_list.html.erb:16
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mRole Load (2.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (4.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (4.7ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 9], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mRole Load (5.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (3.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (3.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (9.3ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 7], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 3], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  Rendered users/_doctors_list.html.erb (Duration: 92.1ms | Allocations: 12802)
+  Rendered users/index.html.erb within layouts/application (Duration: 92.5ms | Allocations: 12893)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 104.5ms | Allocations: 16357)
+Completed 200 OK in 127ms (Views: 65.9ms | ActiveRecord: 48.2ms | Allocations: 19266)
+
+
+Started GET "/users/9" for ::1 at 2021-11-24 01:21:20 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:31
+  [1m[36mCategory Load (5.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:33
+  Rendered users/_doctor_form.html.erb (Duration: 21.3ms | Allocations: 114)
+  Rendered users/show.html.erb within layouts/application (Duration: 37.1ms | Allocations: 1963)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 47.2ms | Allocations: 5432)
+Completed 200 OK in 69ms (Views: 41.4ms | ActiveRecord: 12.8ms | Allocations: 9520)
+
+
+Started GET "/" for ::1 at 2021-11-24 01:21:37 +0200
+Processing by VizitsController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (3.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering vizits/index.html.erb within layouts/application
+  [1m[36mVizit Load (2.4ms)[0m  [1m[34mSELECT "vizits".* FROM "vizits"[0m
+  ↳ app/views/vizits/index.html.erb:15
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vizits/index.html.erb:20
+  Rendered vizits/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 3051)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | Allocations: 6493)
+Completed 200 OK in 54ms (Views: 29.2ms | ActiveRecord: 10.6ms | Allocations: 10550)
+
+
+Started GET "/admin/users" for ::1 at 2021-11-24 01:21:43 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (2.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:44:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_doctors_list.html.erb:16
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mRole Load (2.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 9], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 7], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `doctor?'
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/_doctors_list.html.erb:23
+  [1m[36mContact Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."patient_id" = $1 AND "contacts"."doctor_id" = $2 AND "contacts"."status" = $3 LIMIT $4[0m  [["patient_id", 1], ["doctor_id", 3], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `contact_request_sent?'
+  Rendered users/_doctors_list.html.erb (Duration: 73.1ms | Allocations: 12841)
+  Rendered users/index.html.erb within layouts/application (Duration: 73.7ms | Allocations: 12933)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 85.0ms | Allocations: 16822)
+Completed 200 OK in 103ms (Views: 67.1ms | ActiveRecord: 23.3ms | Allocations: 19725)
+
+

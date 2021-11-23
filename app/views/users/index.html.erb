@@ -1,58 +1,62 @@
-<h1>Users</h1>
+<% if current_user.patient? %>
+  <%= render 'doctors_list' %>
+<% else %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Fullname</th>
-      <th>Mobile number</th>
-      <th>Address</th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>Category</th>
-      <th></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Users</h1>
 
-  <tbody>
-    <% @users.each do |user| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to user_path(user) do %>
-               <%= user.fullname %>
-            <% end %>
-        </td>
-        <td><%= user.mobile_no %></td>
-        <td><%= user.address %></td>
-        <td><%= user.email %></td>
-        <td><%= user.role.name %></td>
-        <td><% if user.category != nil %>
-            <%= user.category.speciality %>
-              <% else %>
-              <%= '' %>
-            <% end %>
-        </td>
-        <td>
-          <% if current_user.id != user.id && user.doctor? %>
-    <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
-      <%= link_to user_contacts_path(user), method: :post do %>
-        <button class= "btn btn-warning"> Send Contact Request? </button>
-      <% end %>
-    <% else %> <!-- If user not a friend and a request has been recieved -->
-      <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
-    <% end %>
-    <% end %>
-        </td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Fullname</th>
+        <th>Mobile number</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Category</th>
+        <th></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user_path(user) do %>
+                <%= user.fullname %>
+              <% end %>
+          </td>
+          <td><%= user.mobile_no %></td>
+          <td><%= user.address %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role.name %></td>
+          <td><% if user.category != nil %>
+              <%= user.category.speciality %>
+                <% else %>
+                <%= '' %>
+              <% end %>
+          </td>
+          <td>
+            <% if current_user.id != user.id && user.doctor? %>
+      <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+        <%= link_to user_contacts_path(user), method: :post do %>
+          <button class= "btn btn-warning"> Send Contact Request? </button>
+        <% end %>
+      <% else %> <!-- If user not a friend and a request has been recieved -->
+        <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
+      <% end %>
+          </td>
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<% if can? :create, @user %>
-  <%= link_to 'New User', new_user_path %>
+  <br>
+
+  <% if can? :create, @user %>
+    <%= link_to 'New User', new_user_path %>
+  <% end %>
 <% end %>
-
+<% end %>

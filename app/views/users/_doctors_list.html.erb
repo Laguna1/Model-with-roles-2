@@ -1,0 +1,46 @@
+<h1>Our Doctors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fullname</th>
+      <th>Category</th>
+      <th></th>
+      <th>Mobile number</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <% if user.doctor? %>
+      <tr>
+        <td><%= link_to user_path(user) do %>
+               <%= user.fullname %>
+            <% end %>
+        </td>
+       <td><% if user.category != nil %>
+            <%= user.category.speciality %>
+              <% else %>
+              <%= '' %>
+            <% end %>
+        </td>
+        <td>
+          <% if current_user.id != user.id %>
+    <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+      <%= link_to user_contacts_path(user), method: :post do %>
+        <button class= "btn btn-warning"> Send Contact Request? </button>
+      <% end %>
+    <% else %> <!-- If user not a friend and a request has been recieved -->
+      <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
+    <% end %>
+        </td>
+        <td><%= user.mobile_no %></td>
+        <td><%= link_to 'Show', user %></td>
+     </tr>
+    <% end %>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
