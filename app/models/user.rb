@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,6 +7,8 @@ class User < ApplicationRecord
 
   belongs_to :role, optional: true
   belongs_to :category, optional: true
+  has_many :contact_sent, class_name: 'Contact', foreign_key: 'patient_id'
+  has_many :contact_request, class_name: 'Contact', foreign_key: 'doctor_id'
   has_many :vizits, dependent: :destroy
   validates :fullname, presence: true, uniqueness: true
   validates :email, uniqueness: true
