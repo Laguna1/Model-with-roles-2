@@ -15,10 +15,10 @@
     <header>
       <% if user_signed_in? %>
         Signed in as: <%= current_user.fullname %> "<%= current_user.role.name %>"<br>
-        <%= link_to "My Profile Page", current_user %> |
+        <%= link_to "My Profile Page", current_user %> 
         <% if current_user.patient? %>
-          <%= link_to "Categories", categories_path %> |
-          <%= link_to 'Doctors List', users_path %>
+          | <%= link_to "Categories", categories_path %> |
+          <%= link_to 'Doctors List', "#" %>
         <% end %>
         <br>
         Not you?

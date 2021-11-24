@@ -1,8 +1,4 @@
-<% if current_user.patient? %>
-  <%= render 'doctors_list' %>
-<% else %>
-
-  <h1>Users</h1>
+ <h1>Users</h1>
 
   <table>
     <thead>
@@ -58,5 +54,4 @@
   <% if can? :create, @user %>
     <%= link_to 'New User', new_user_path %>
   <% end %>
-<% end %>
 <% end %>
