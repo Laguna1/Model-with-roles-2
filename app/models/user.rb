@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   has_many :doctor_relationships, foreign_key: :patient_id, class_name: 'ContactWithDoc'
   has_many :doctors, through: :doctor_relationships, source: :doctor
-  
+
   has_many :vizits, dependent: :destroy
   validates :fullname, presence: true, uniqueness: true
   validates :email, uniqueness: true
@@ -55,5 +55,13 @@ class User < ApplicationRecord
 
   def patient?
     role.name == 'Patient'
+  end
+
+  def book_doctor(user_id)
+    doctor_relationships.create(doctor_id: user_id)
+  end
+
+  def unbook_doctor(user_id)
+    doctor_relationships.find_by(doctor_id: user_id).destroy
   end
 end
