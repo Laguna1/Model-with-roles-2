@@ -8,10 +8,10 @@ class User < ApplicationRecord
 
   belongs_to :role, optional: true
   belongs_to :category, optional: true
-  has_many :patient_relationships, foreign_key: :doctor_id, class_name: 'ContactWithDoc'
+  has_many :patient_relationships, foreign_key: :doctor_id, class_name: 'Contact'
   has_many :patients, through: :patient_relationships, source: :patient
 
-  has_many :doctor_relationships, foreign_key: :patient_id, class_name: 'ContactWithDoc'
+  has_many :doctor_relationships, foreign_key: :patient_id, class_name: 'Contact'
   has_many :doctors, through: :doctor_relationships, source: :doctor
 
   has_many :vizits, dependent: :destroy

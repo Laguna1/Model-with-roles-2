@@ -56,7 +56,16 @@
 <%= link_to 'Back', users_path %>
 <br>
 <br>
+<p>still for all users</p>
+<p><%= link_to 'My Doctors List' %> (<%= @user.doctors.count %>)</p>
+    <% @user.doctors.each do |doctor| %>
+      <p>* <%= doctor.fullname %></p>
+    <% end %>
 
+<p><%= link_to 'My Patients List' %> (<%= @user.patients.count %>)</p>
+    <% @user.patients.each do |patient| %>
+      <p>* <%= patient.fullname %></p>
+    <% end %>
 
 <p><% if @user.role.name == 'Patient'%>
        <%= render 'patient_form' %>
