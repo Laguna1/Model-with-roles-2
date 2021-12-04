@@ -14,6 +14,7 @@ There are three main models in this project:
 
 ![/admin/vizits](./app/assets/images/vizits.png)
 ![/admin/roles](./app/assets/images/roles.png)
+![/admin/categorieses](./app/assets/images/)
 
 * Ruby version - `2.7.2`
 - Rails version - `6.1.4.1`
