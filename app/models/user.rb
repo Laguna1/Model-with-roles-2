@@ -8,8 +8,12 @@ class User < ApplicationRecord
 
   belongs_to :role, optional: true
   belongs_to :category, optional: true
-  has_many :contact_sent, class_name: 'Contact', foreign_key: 'patient_id'
-  has_many :contact_request, class_name: 'Contact', foreign_key: 'doctor_id'
+  has_many :patient_relationships, foreign_key: :doctor_id, class_name: 'ContactWithDoc'
+  has_many :patients, through: :patient_relationships, source: :patient
+
+  has_many :doctor_relationships, foreign_key: :patient_id, class_name: 'ContactWithDoc'
+  has_many :doctors, through: :doctor_relationships, source: :doctor
+  
   has_many :vizits, dependent: :destroy
   validates :fullname, presence: true, uniqueness: true
   validates :email, uniqueness: true
