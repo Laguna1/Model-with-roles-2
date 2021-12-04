@@ -31,16 +31,7 @@
                 <%= '' %>
               <% end %>
           </td>
-          <td>
-            <% if current_user.id != user.id && user.doctor? %>
-      <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
-        <%= link_to user_contacts_path(user), method: :post do %>
-          <button class= "btn btn-warning"> Send Contact Request? </button>
-        <% end %>
-      <% else %> <!-- If user not a friend and a request has been recieved -->
-        <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
-      <% end %>
-          </td>
+         
           <td><%= link_to 'Show', user %></td>
           <td><%= link_to 'Edit', edit_user_path(user) %></td>
           <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -54,4 +45,4 @@
   <% if can? :create, @user %>
     <%= link_to 'New User', new_user_path %>
   <% end %>
-<% end %>
+

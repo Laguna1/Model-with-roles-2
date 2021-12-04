@@ -16,10 +16,13 @@ require 'faker'
 # r2 = Role.create({ name: 'Doctor', description: 'Can read vizits. Can create, read and update own appointments' })
 # r3 = Role.create({ name: 'Admin', description: 'Can perform any CRUD operation on any resource' })
 
-# u1 = User.create({ fullname: 'Sally Major', mobile_no: '380501234567', address: 'Kharkiv, Danilevskogo str. 7', email: 'sally@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r1.id })
-# u2 = User.create({ fullname: 'Sue Kostner', mobile_no: '380661111111', address: 'Kharkiv, Danilevskogo str. 8', email: 'sue@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r2.id })
-# u3 = User.create({ fullname: 'Kevin Spacy', mobile_no: '380672222222', address: 'Kharkiv, Danilevskogo str. 9', email: 'kevin@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r2.id })
-# u4 = User.create({ fullname: 'Jack Nortingen', mobile_no: '380733333333', address: 'Kharkiv, Danilevskogo str. 17', email: 'jack@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r3.id })
+# u1 = User.create({ fullname: 'Sally Major', mobile_no: '380501234567', address: 'Kharkiv, Danilevskogo str. 7', email: 'sally@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 1 })
+# u1 = User.create({ fullname: 'Mary Black', mobile_no: '380511234567', address: 'Kharkiv, Danilevskogo str. 17', email: 'mary@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 1 })
+# u3 = User.create({ fullname: 'Sue Kostner', mobile_no: '380661111111', address: 'Kharkiv, Danilevskogo str. 8', email: 'sue@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 2 })
+# u4 = User.create({ fullname: 'Maxim Kortess', mobile_no: '380671111111', address: 'Kharkiv, Danilevskogo str. 18', email: 'maxim@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 2 })
+# u5 = User.create({ fullname: 'James Daniels', mobile_no: '380681111111', address: 'Kharkiv, Danilevskogo str. 81', email: 'james@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 2 })
+# u6 = User.create({ fullname: 'Kevin Spacy', mobile_no: '380672222222', address: 'Kharkiv, Danilevskogo str. 9', email: 'kevin@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 2 })
+# u7 = User.create({ fullname: 'Jack Nortingen', mobile_no: '380733333333', address: 'Kharkiv, Danilevskogo str. 17', email: 'jack@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 3 })
 
 # v1 = Vizit.create({ date: '2021-12-10 11:00:00', notes: 'Headache', user_id: 1 })
 # v2 = Vizit.create({ date: '2021-11-12 12:00:00', notes: 'Toothache', user_id: 6 })
