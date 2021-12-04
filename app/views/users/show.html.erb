@@ -1,4 +1,7 @@
 <div>Profile  page<h2><%= @user.fullname %></h2></div>
+<% if current_user != @user && @user.doctor? %>
+  <%= button_to 'Book Doctor' %></td>
+<% end %>
 <h3>General Info</h3>
 <p>
   <strong>Fullname:</strong>

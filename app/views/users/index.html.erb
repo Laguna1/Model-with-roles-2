@@ -9,8 +9,9 @@
         <th>Email</th>
         <th>Role</th>
         <th>Category</th>
-        <th></th>
+        <th>Booking</th>
         <th colspan="3"></th>
+        
       </tr>
     </thead>
 
@@ -31,15 +32,14 @@
                 <%= '' %>
               <% end %>
           </td>
-         
+          <td><% if current_user != user && user.doctor? %>
+                <%= button_to 'Book Doctor' %>
+              <% end %>
+          </td>
           <td><%= link_to 'Show', user %></td>
           <td><%= link_to 'Edit', edit_user_path(user) %></td>
           <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td>
-            <% if current_user != user && user.doctor? %>
-          <td><%= button_to 'Book Doctor' %></td>
-        <% end %>
-          </td>
+          
         </tr>
       <% end %>
     </tbody>
