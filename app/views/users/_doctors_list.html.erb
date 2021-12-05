@@ -29,13 +29,8 @@
         </td>
         <td>
           <% if current_user.id != user.id %>
-    <% unless contact_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
-      <%= link_to user_contacts_path(user), method: :post do %>
-        <button class= "btn btn-warning"> Send Contact Request? </button>
-      <% end %>
-    <% else %> <!-- If user not a friend and a request has been recieved -->
-      <button class= "btn btn-secondary" disabled> Contact Request pending... </button>
-    <% end %>
+            <%= button_to 'Book Doctor', book_doctor_path(user) %>
+         <% end %>
         </td>
         <td><%= user.mobile_no %></td>
         <td><%= link_to 'Show', user %></td>

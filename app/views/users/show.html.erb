@@ -59,7 +59,8 @@
 <p>still for all users</p>
 <p><%= link_to 'My Doctors List' %> (<%= @user.doctors.count %>)</p>
     <% @user.doctors.each do |doctor| %>
-      <p>* <%= doctor.fullname %></p>
+      <p>* <%= doctor.fullname %>  <%= button_to 'Unbook Doctor', unbook_doctor_path(doctor) %></p></p>
+
     <% end %>
  
 <p><%= link_to 'My Patients List' %> (<%= @user.patients.count %>)</p>

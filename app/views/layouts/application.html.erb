@@ -18,7 +18,7 @@
         <%= link_to "My Profile Page", current_user %> 
         <% if current_user.patient? %>
           | <%= link_to "Categories", categories_path %> |
-          <%= link_to 'Doctors List', "#" %>
+          <%= link_to 'Doctors List', users_path %>
         <% end %>
         <br>
         Not you?
