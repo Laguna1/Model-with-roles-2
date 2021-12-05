@@ -62,6 +62,18 @@ class UsersController < ApplicationController
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
+  def book
+    @user = User.find(params[:id])
+    current_user.doctors << @user
+    redirect_back(fallback_location: user_path(@user))
+  end
+
+  def unbook
+    @user = User.find(params[:id])
+    current_user.doctor_relationships.find_by(doctor_id: @user.id).destroy
+    redirect_back(fallback_location: user_path(@user))
+  end
+
   private
 
   # Only allow a list of trusted parameters through.

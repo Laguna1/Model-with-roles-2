@@ -61,17 +61,17 @@
     <% @user.doctors.each do |doctor| %>
       <p>* <%= doctor.fullname %></p>
     <% end %>
-
+ 
 <p><%= link_to 'My Patients List' %> (<%= @user.patients.count %>)</p>
     <% @user.patients.each do |patient| %>
       <p>* <%= patient.fullname %></p>
     <% end %>
 
-<p><% if @user.role.name == 'Patient'%>
+<p><% if @user.role.name == 'Patient' %>
        <%= render 'patient_form' %>
     <% elsif @user.role.name == 'Doctor' %>
        <%= render 'doctor_form' %>
     <% else %>
-      <%= link_to "Admin page", '#' %>
+     <p> link_to "Admin page", '#' </p>
     <% end %>
 </p>

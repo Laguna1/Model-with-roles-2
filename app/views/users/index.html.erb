@@ -33,7 +33,7 @@
               <% end %>
           </td>
           <td><% if current_user != user && user.doctor? %>
-                <%= button_to 'Book Doctor' %>
+                <%= button_to 'Book Doctor', book_doctor_path(user) %>
               <% end %>
           </td>
           <td><%= link_to 'Show', user %></td>
