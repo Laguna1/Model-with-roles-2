@@ -1,4 +1,8 @@
-<h1>Users</h1>
+<h1>All Users</h1>
+
+<% if can? :create, @user %>
+  <%= link_to 'New User', new_user_path %>
+<% end %>
 
 <table>
   <thead>
@@ -37,10 +41,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<% if can? :create, @user %>
-  <%= link_to 'New User', new_user_path %>
-<% end %>
-

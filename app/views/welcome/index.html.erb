@@ -1,7 +1,20 @@
 <h1>Welcome#index</h1>
+
 <p>Welcome to the Clinic Management!</p>
+
+<p>1. Choose a category</p>
+
+<% @categories.each do |category| %>
+   <p><%= link_to category.speciality, category_path(category) %>
+      (<%= category.users.count %>)
+<% end %>
+<p>2. Choose a doctor from the category</p>
+<p>3. Create a new visit</p>
+<p>4 .Check your visits and personal info on your profile page</p>
+
 <p>Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
   eveniet, repellat quae sed hic obcaecati nam exercitationem saepe
   quod totam dolore explicabo culpa iure deserunt? Dignissimos, fuga,
   adipisci. Temporibus, aliquid.
+
   </p>
