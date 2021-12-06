@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_12_214949) do
+ActiveRecord::Schema.define(version: 2021_12_06_233304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2021_11_12_214949) do
     t.string "speciality"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer "patient_id", null: false
+    t.integer "doctor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["doctor_id"], name: "index_contacts_on_doctor_id"
+    t.index ["patient_id", "doctor_id"], name: "index_contacts_on_patient_id_and_doctor_id", unique: true
+    t.index ["patient_id"], name: "index_contacts_on_patient_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -52,6 +62,17 @@ ActiveRecord::Schema.define(version: 2021_11_12_214949) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.datetime "date"
+    t.string "note"
+    t.bigint "pat_id", null: false
+    t.bigint "doc_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["doc_id"], name: "index_visits_on_doc_id"
+    t.index ["pat_id"], name: "index_visits_on_pat_id"
+  end
+
   create_table "vizits", force: :cascade do |t|
     t.datetime "date"
     t.string "notes"
@@ -63,5 +84,7 @@ ActiveRecord::Schema.define(version: 2021_11_12_214949) do
 
   add_foreign_key "users", "categories"
   add_foreign_key "users", "roles"
+  add_foreign_key "visits", "users", column: "doc_id"
+  add_foreign_key "visits", "users", column: "pat_id"
   add_foreign_key "vizits", "users"
 end

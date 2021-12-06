@@ -17778,3 +17778,126 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 110ms (Views: 70.8ms | ActiveRecord: 37.0ms | Allocations: 15657)
 
 
+Started GET "/categories/2" for ::1 at 2021-12-07 00:51:37 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (3.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRole Load (2.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/categories/show.html.erb:9
+  Rendered categories/show.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1596)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 5075)
+Completed 200 OK in 54ms (Views: 26.9ms | ActiveRecord: 11.2ms | Allocations: 9384)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (34.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVisits (20211206231324)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1720.5ms)[0m  [1m[35mCREATE TABLE "visits" ("id" bigserial primary key, "date" timestamp, "note" character varying, "pat_id_id" bigint NOT NULL, "doc_id_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (42.8ms)[0m  [1m[35mCREATE INDEX "index_visits_on_pat_id_id" ON "visits" ("pat_id_id")[0m
+  [1m[35m (42.5ms)[0m  [1m[35mCREATE INDEX "index_visits_on_doc_id_id" ON "visits" ("doc_id_id")[0m
+  [1m[36mTRANSACTION (77.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVisits (20211206231324)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (427.0ms)[0m  [1m[35mCREATE TABLE "visits" ("id" bigserial primary key, "date" timestamp, "note" character varying, "pat_id_id" bigint NOT NULL, "doc_id_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (75.4ms)[0m  [1m[35mCREATE INDEX "index_visits_on_pat_id_id" ON "visits" ("pat_id_id")[0m
+  [1m[35m (87.5ms)[0m  [1m[35mCREATE INDEX "index_visits_on_doc_id_id" ON "visits" ("doc_id_id")[0m
+  [1m[35m (65.3ms)[0m  [1m[35mCREATE INDEX "index_visit_on_pat_id" ON "visit" ("pat_id")[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVisitsJoinTable (20211206233304)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (230.5ms)[0m  [1m[35mCREATE TABLE "visits" ("id" bigserial primary key, "date" timestamp, "note" character varying, "pat_id_id" bigint NOT NULL, "doc_id_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (75.1ms)[0m  [1m[35mCREATE INDEX "index_visits_on_pat_id_id" ON "visits" ("pat_id_id")[0m
+  [1m[35m (41.9ms)[0m  [1m[35mCREATE INDEX "index_visits_on_doc_id_id" ON "visits" ("doc_id_id")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_visit_on_pat_id" ON "visit" ("pat_id")[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVisitsJoinTable (20211206233304)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (247.7ms)[0m  [1m[35mCREATE TABLE "visits" ("id" bigserial primary key, "date" timestamp, "note" character varying, "pat_id_id" bigint NOT NULL, "doc_id_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (42.5ms)[0m  [1m[35mCREATE INDEX "index_visits_on_pat_id_id" ON "visits" ("pat_id_id")[0m
+  [1m[35m (87.2ms)[0m  [1m[35mCREATE INDEX "index_visits_on_doc_id_id" ON "visits" ("doc_id_id")[0m
+  [1m[35m (17.0ms)[0m  [1m[35mALTER TABLE "visits" ADD CONSTRAINT "fk_rails_e2cb941098"
+FOREIGN KEY ("pat_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVisitsJoinTable (20211206233304)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (171.7ms)[0m  [1m[35mCREATE TABLE "visits" ("id" bigserial primary key, "date" timestamp, "note" character varying, "pat_id_id" bigint NOT NULL, "doc_id_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (42.4ms)[0m  [1m[35mCREATE INDEX "index_visits_on_pat_id_id" ON "visits" ("pat_id_id")[0m
+  [1m[35m (88.3ms)[0m  [1m[35mCREATE INDEX "index_visits_on_doc_id_id" ON "visits" ("doc_id_id")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "visits" ADD CONSTRAINT "fk_rails_e2cb941098"
+FOREIGN KEY ("pat_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVisitsJoinTable (20211206233304)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (409.9ms)[0m  [1m[35mCREATE TABLE "visits" ("id" bigserial primary key, "date" timestamp, "note" character varying, "pat_id_id" bigint NOT NULL, "doc_id_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_92def396c5"
+FOREIGN KEY ("pat_id_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_1ef516e70b"
+FOREIGN KEY ("doc_id_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (54.5ms)[0m  [1m[35mCREATE INDEX "index_visits_on_pat_id_id" ON "visits" ("pat_id_id")[0m
+  [1m[35m (41.9ms)[0m  [1m[35mCREATE INDEX "index_visits_on_doc_id_id" ON "visits" ("doc_id_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211206233304"]]
+  [1m[36mTRANSACTION (15.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (46.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVisitsJoinTable (20211206233304)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (128.2ms)[0m  [1m[35mDROP TABLE "visits"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20211206233304"]]
+  [1m[36mTRANSACTION (31.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVisitsJoinTable (20211206233304)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (222.7ms)[0m  [1m[35mCREATE TABLE "visits" ("id" bigserial primary key, "date" timestamp, "note" character varying, "pat_id" bigint NOT NULL, "doc_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e2cb941098"
+FOREIGN KEY ("pat_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_3d517c09c8"
+FOREIGN KEY ("doc_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE INDEX "index_visits_on_pat_id" ON "visits" ("pat_id")[0m
+  [1m[35m (44.3ms)[0m  [1m[35mCREATE INDEX "index_visits_on_doc_id" ON "visits" ("doc_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211206233304"]]
+  [1m[36mTRANSACTION (26.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

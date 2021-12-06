@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VizitsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
@@ -8,20 +10,17 @@ class VizitsController < ApplicationController
   end
 
   # GET /vizits/1
-  def show
-  end
+  def show; end
 
   # GET /vizits/new
-  def new
-  end
+  def new; end
 
   # GET /vizits/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /vizits
   def create
-   @vizit.user_id = current_user.id
+    @vizit.user_id = current_user.id
 
     if @vizit.save
       redirect_to @vizit, notice: 'Vizit was successfully created.'
@@ -46,10 +45,11 @@ class VizitsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
-    # Only allow a list of trusted parameters through.
-    def vizit_params
-      params.require(:vizit).permit(:date, :notes, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+
+  # Only allow a list of trusted parameters through.
+  def vizit_params
+    params.require(:vizit).permit(:date, :notes, :user_id)
+  end
 end

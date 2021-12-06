@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
@@ -14,16 +16,13 @@ class CategoriesController < ApplicationController
   end
 
   # GET /categories/new
-  def new
-  end
+  def new; end
 
   # GET /categories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /categories
   def create
-    
     if @category.save
       redirect_to @category, notice: 'Category was successfully created.'
     else

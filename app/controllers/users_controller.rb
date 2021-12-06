@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
@@ -12,24 +14,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @joined_on = @user.created_at.to_formatted_s(:short)
 
-    if @user.current_sign_in_at
-      @last_login = @user.current_sign_in_at.to_formatted_s(:short)
-    else
-      @last_login = 'never'
-    end
+    @last_login = if @user.current_sign_in_at
+                    @user.current_sign_in_at.to_formatted_s(:short)
+                  else
+                    'never'
+                  end
   end
 
   # GET /users/new
-  def new
-  end
+  def new; end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users
   def create
-  
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'
     else
@@ -43,13 +42,13 @@ class UsersController < ApplicationController
       user_params.delete(:password)
       user_params.delete(:password_confirmation)
     end
-  
+
     successfully_updated = if needs_password?(@user, user_params)
                              @user.update(user_params)
                            else
                              @user.update_without_password(user_params)
                            end
-  
+
     if successfully_updated
       redirect_to @user, notice: 'User was successfully updated.'
     else
@@ -70,7 +69,8 @@ class UsersController < ApplicationController
     # if doctor?
     #   params.require(:user).permit(:fullname, :role_id, :category_id, :mobile_no, :address, :email, :password, :password_confirmation)
     # else
-    params.require(:user).permit(:fullname, :role_id, :mobile_no, :address, :email, :password, :password_confirmation, :category_id)
+    params.require(:user).permit(:fullname, :role_id, :mobile_no, :address, :email, :password, :password_confirmation,
+                                 :category_id)
     # end
   end
 
