@@ -1,7 +1,13 @@
-<div>Profile  page<h2><%= @user.fullname %></h2></div>
-<% if current_user != @user && @user.doctor? %>
-  <%= button_to 'Book Doctor' %></td>
+<div><%= "#{@current_user.fullname}'s page" %></div>
+<% if current_user != @user && @user.doctor? && @current_user.doctors.include?(@user) %>
+   <h5><%= button_to "UnBook #{@user.fullname}",     
+       unbook_doctor_path, method: "POST" %></h5>
+<% else %>
+   <h5><%= button_to "Book doctor #{@user.fullname}", book_doctor_path, 
+       method: "POST"  %></h5>
 <% end %>
+   <h5></h5>
+
 <h3>General Info</h3>
 <p>
   <strong>Fullname:</strong>

@@ -7,9 +7,14 @@
 
 <ul class="">Doctors List:</ul>
 <% @category.users.each do |user| %>
-     <p><%= link_to user.fullname, user_path(user) %> | <%= button_to 'Book Doctor', '#' %></p> 
-
-    <% end %>
+     <p><%= link_to user.fullname, user_path(user) %> | 
+     <%= button_to "Book doctor #{@user.fullname}", book_doctor_path, 
+       method: "POST"  %></p>
+       <% if @current_user.doctors.include?(@user) %>
+   <h5><%= button_to "UnBook #{@user.fullname}",     
+       unbook_doctor_path, method: "POST" %>
+<% end %>
+<% end %>
 
 
 <br>

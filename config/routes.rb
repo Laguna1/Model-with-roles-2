@@ -3,11 +3,11 @@
 Rails.application.routes.draw do
   root 'vizits#index'
   devise_for :users
-  resources :users, only: :index
+  # resources :users, only: %i[index show]
   scope '/admin' do
-    resources :users, except: :index
+    resources :users
   end
-  
+
   post '/users/:id/book', to: 'users#book', as: 'book_doctor'
   post '/users/:id/unbook', to: 'users#unbook', as: 'unbook_doctor'
 

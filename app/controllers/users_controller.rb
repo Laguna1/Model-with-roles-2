@@ -65,13 +65,13 @@ class UsersController < ApplicationController
   def book
     @user = User.find(params[:id])
     current_user.doctors << @user
-    redirect_back(fallback_location: user_path(@user))
+    redirect_to user_path @user
   end
 
   def unbook
     @user = User.find(params[:id])
     current_user.doctor_relationships.find_by(doctor_id: @user.id).destroy
-    redirect_back(fallback_location: user_path(@user))
+    redirect_to user_path(current_user)
   end
 
   private
