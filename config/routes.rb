@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   scope '/admin' do
     resources :users
   end
-  resources :vizits
   resources :roles
   resources :categories
 end
