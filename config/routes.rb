@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'welcome#index'
+  
   devise_for :users
+  get '/welcome/index'
+  root 'users#index'
   resources :users, only: %i[index show update]
 
   scope '/admin' do
