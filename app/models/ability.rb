@@ -14,7 +14,7 @@ class Ability
       can :read, Category
       can :read, Visit
       can :update, Visit do |visit|
-        vizit.try(:user) == user
+        visit.try(:user) == user
       end
     elsif user.patient?
       can :read, User

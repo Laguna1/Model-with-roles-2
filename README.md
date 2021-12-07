@@ -48,6 +48,7 @@ There are three main models in this project:
 - `User.first.created_visits.first.doc.category.speciality`
 - `User.fourth.requested_visits.first.pat.fullname`
 - `User.fourth.requested_visits.first.note`
+- `User.fourth.requested_visits.first.pat.role`
 
 ### Author
 
