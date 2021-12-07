@@ -38,6 +38,17 @@ There are three main models in this project:
 - Open `http://localhost:3000/` in your browser
 
 
+- `rails c` Creating the first visit:
+- `v=Visit.create!(note: 'Headache', pat_id: 1, doc_id: 4)`
+- `Visit.all` or Visit.all.count
+- `v.pat` or v.pat.fullname
+- `v.doc` or v.doc.fullname
+- `User.first.created_visits`
+- `User.first.created_visits.first.doc.fullname`
+- `User.first.created_visits.first.doc.category.speciality`
+- `User.fourth.requested_visits.first.pat.fullname`
+- `User.fourth.requested_visits.first.note`
+
 ### Author
 
 👤 **Oksana Petrova**
