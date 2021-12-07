@@ -1,2 +1,10 @@
-<h1>Visits#show</h1>
-<p>Find me in app/views/visits/show.html.erb</p>
+<h1>Visit No:<%= @visit.id %> Card</h1>
+
+    <p>Patient: <%= @visit.pat.fullname %></p>
+    <p>Doctor: <%= @visit.doc.fullname %> - <%= @visit.doc.category.speciality %></p>
+    <p>Problem: <%= @visit.note %></p>
+    <p>Date: <%= @visit.date %></p>
+    <p>*   *   *   *   *</p>
+    Button "check doctor`s appointment"   
+    <br />
+    <%= link_to '<-- Back', root_path%>

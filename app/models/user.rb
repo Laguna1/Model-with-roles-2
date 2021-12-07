@@ -8,8 +8,10 @@ class User < ApplicationRecord
 
   belongs_to :role, optional: true
   belongs_to :category, optional: true
+
   has_many :created_visits, class_name: 'Visit', foreign_key: 'pat_id'
   has_many :requested_visits, class_name: 'Visit', foreign_key: 'doc_id'
+
   validates :fullname, presence: true, uniqueness: true
   validates :email, uniqueness: true
   validates :mobile_no, uniqueness: true

@@ -12,8 +12,8 @@ class Ability
     elsif user.doctor?
       can :read, User
       can :read, Category
-      can :read, Vizit
-      can :update, Vizit do |vizit|
+      can :read, Visit
+      can :update, Visit do |visit|
         vizit.try(:user) == user
       end
     elsif user.patient?
