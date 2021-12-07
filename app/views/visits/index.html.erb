@@ -1,0 +1,12 @@
+<h1>All Visits#index</h1>
+<p>Find me in app/views/visits/index.html.erb</p>
+<div>
+  <% @visits.each do |visit| %>
+    <p><%= visit.pat.fullname %></p>
+    <p><%= visit.doc.category.speciality %></p>
+    <p><%= visit.doc.fullname %></p>
+    <p><%= visit.date %></p>
+    <p><%= visit.note %></p>
+    <p>Button more...</p>
+  <% end %>
+</div>

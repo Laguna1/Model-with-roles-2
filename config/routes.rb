@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :roles
   resources :categories
+  resources :visits
 end
