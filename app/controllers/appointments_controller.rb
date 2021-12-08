@@ -52,8 +52,12 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
   end
 
+  def visit_params
+    params.require(:visit).permit(:date, :note, :pat_id, :doc_id)
+  end
+
   # Only allow a list of trusted parameters through.
   def appointment_params
-    params.fetch(:appointment, {})
+    params.require(:appointment).permit(:date_opening, :recomendation, :status, :visit_id, :pat_id, :doc_id)
   end
 end
