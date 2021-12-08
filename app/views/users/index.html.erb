@@ -4,6 +4,7 @@
   <%= link_to 'New User', new_user_path %>
 <% end %>
 
+<% if current_user.admin? %><h2>Full Users List</h2>
 <table>
   <thead>
     <tr>
@@ -41,3 +42,9 @@
     <% end %>
   </tbody>
 </table>
+<% elsif current_user.patient? %>
+  <p>Doctor`s List</p>
+<% else %>
+  <p>Patients List</p>
+<% end %>
+

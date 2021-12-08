@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -6,7 +8,10 @@ class User < ApplicationRecord
 
   belongs_to :role, optional: true
   belongs_to :category, optional: true
-  has_many :vizits, dependent: :destroy
+
+  has_many :created_visits, class_name: 'Visit', foreign_key: 'pat_id'
+  has_many :requested_visits, class_name: 'Visit', foreign_key: 'doc_id'
+
   validates :fullname, presence: true, uniqueness: true
   validates :email, uniqueness: true
   validates :mobile_no, uniqueness: true
@@ -47,5 +52,16 @@ class User < ApplicationRecord
 
   def patient?
     role.name == 'Patient'
+  end
+
+  def choose_category
+    collection_select(
+      :user, :category_id, Category.all, :id, :speciality, { prompt: true }
+    ).gets.chomp.to_i
+  end
+
+  def choose_doctor_from_category
+    User.where category_id gets.chomp.to_i
+    category(category_id).users.each(&:fullname)
   end
 end

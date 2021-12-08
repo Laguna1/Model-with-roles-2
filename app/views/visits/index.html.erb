@@ -1,0 +1,31 @@
+<h1>All Visits</h1>
+  <div>
+    <% @visits.each do |visit| %>
+    <% if current_user.id == visit.pat.id || current_user.id == visit.doc.id%>
+  
+      <p>Visit No: <%= visit.id %></p>
+      <p>Patient: <%= visit.pat.fullname %></p>    
+      <button><%= link_to 'Show more', visit_path(visit) %></button>
+    <% end %>
+    <% end %>
+  </div>
+
+
+  <% if current_user.admin? %>
+  <div>
+    <% @visits.each do |visit| %>
+      <p>Visit No: <%= visit.id %></p>
+      <p>Patient: <%= visit.pat.fullname %></p>    
+      <p>Doctor: <%= visit.doc.fullname %> - <%= visit.doc.category.speciality %></p>
+      <p>Problem: <%= visit.note %></p>
+      <p>Date: <%= visit.date %></p>
+      <p>*   *   *   *   *</p>
+      Button "check doctor`s appointment" will be here
+      <br />
+      <%= link_to 'Edit', edit_visit_path(visit) %>
+    <% end %>
+    
+  <% end %>
+</div>
+
+<br />

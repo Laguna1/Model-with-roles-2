@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RolesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
@@ -17,16 +19,13 @@ class RolesController < ApplicationController
   end
 
   # GET /roles/new
-  def new
-  end
+  def new; end
 
   # GET /roles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /roles
   def create
-  
     if @role.save
       redirect_to @role, notice: 'Role was successfully created.'
     else
@@ -50,7 +49,7 @@ class RolesController < ApplicationController
   end
 
   private
-  
+
   # Only allow a list of trusted parameters through.
   def role_params
     params.require(:role).permit(:name, :description)

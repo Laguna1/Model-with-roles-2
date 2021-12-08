@@ -12,15 +12,15 @@ class Ability
     elsif user.doctor?
       can :read, User
       can :read, Category
-      can :read, Vizit
-      can :update, Vizit do |vizit|
-        vizit.try(:user) == user
+      can :read, Visit
+      can :update, Visit do |visit|
+        visit.try(:user) == user
       end
     elsif user.patient?
       can :read, User
       can :read, Category
-      can :read, Vizit
-      can :create, Vizit
+      can :read, Visit
+      can :create, Visit
     end
     #
     # The first argument to `can` is the action you are giving the user
