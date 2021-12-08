@@ -53,4 +53,15 @@ class User < ApplicationRecord
   def patient?
     role.name == 'Patient'
   end
+
+  def choose_category
+    collection_select(
+      :user, :category_id, Category.all, :id, :speciality, { prompt: true }
+    ).gets.chomp.to_i
+  end
+
+  def choose_doctor_from_category
+    User.where category_id gets.chomp.to_i
+    category(category_id).users.each(&:fullname)
+  end
 end

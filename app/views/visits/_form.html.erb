@@ -22,13 +22,20 @@
   </div>
 
   <div class="field">
+    <%= form.label :choose_doctor_category %>
+    <%= collection_select(
+      :user, :category_id, Category.all, :id, :speciality, { prompt: true }
+    ) %>
+  </div>
+
+  <div class="field">
     <%= form.label :doctor %>
     <%= form.text_field :doc_id %>
   </div>
 
   <div class="field">
     <%= form.label :patient %>
-    <%= form.text_field :pat_id %>
+    <%= current_user.fullname %>
   </div>
 
   <div class="actions">

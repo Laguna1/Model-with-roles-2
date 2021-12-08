@@ -1,8 +1,13 @@
 <h1>All Visits</h1>
 <div>
   <% @visits.each do |visit| %>
+  <% if current_user.id == visit.pat.id || current_user.id == visit.doc.id%>
     <p>Visit No: <%= visit.id %></p>
     <p>Patient: <%= visit.pat.fullname %></p>    
     <button><%= link_to 'Show more', visit_path(visit) %></button>
   <% end %>
+  <% end %>
 </div>
+
+<br />
+<%= link_to 'New Visit', new_visit_path %>
