@@ -13,13 +13,14 @@
   <body>
   <div class="flex-container">
     <header>
+    
       <% if user_signed_in? %>
         Signed in as: <%= current_user.fullname %> "<%= current_user.role.name %>"<br>
         <%= link_to "My Profile Page", current_user %>
-          <% if current_user.patient? %>
+        <% if current_user.patient? %>
           | <%= link_to "Categories", categories_path %> |
-          <%= link_to 'Doctors List', users_path %>
         <% end %>
+          | <%= link_to "Visits", visits_path %>
         <br>
         Not you?
         <%= link_to "Edit registration", edit_user_registration_path %>

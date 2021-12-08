@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get '/welcome/index'
-  root 'users#index'
+  root 'visits#index'
   resources :users, only: %i[index show update]
 
   scope '/admin' do
