@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :created_visits, class_name: 'Visit', foreign_key: 'pat_id'
   has_many :requested_visits, class_name: 'Visit', foreign_key: 'doc_id'
 
+  has_many :appointments
+
   validates :fullname, presence: true, uniqueness: true
   validates :email, uniqueness: true
   validates :mobile_no, uniqueness: true
