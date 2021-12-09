@@ -5,7 +5,12 @@
     <p>Problem: <%= @visit.note %></p>
     <p>Date: <%= @visit.date %></p>
     <p>*   *   *   *   *</p>
-    Button "check doctor`s appointment" will be here
+    
+    <%= link_to 'Show appointment', appointment_path %>
     <br />
+    <% if current_user.id == @visit.doc.id %>
+      <%= link_to 'Make appointment', new_appointment_path(@appointment) %>
+    <% end %>
+   <br />
     <%= link_to 'Visits List', visits_path %><br />
    

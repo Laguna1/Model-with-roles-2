@@ -5,5 +5,5 @@ class Appointment < ApplicationRecord
   belongs_to :pat, class_name: 'User'
   belongs_to :doc, class_name: 'User'
 
-  validates :recomendations, presence: true, length: { minimum: 20 }
+  validates :recomendation, presence: true, length: { minimum: 20 }
 end

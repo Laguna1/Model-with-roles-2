@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class AppointmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_appointment, only: %i[show edit update destroy]
+  load_and_authorize_resource
 
   # GET /appointments
   def index
@@ -9,7 +11,9 @@ class AppointmentsController < ApplicationController
   end
 
   # GET /appointments/1
-  def show; end
+  def show
+   @appointment = Appointment.find(params[:id])
+  end
 
   # GET /appointments/new
   def new
@@ -21,10 +25,12 @@ class AppointmentsController < ApplicationController
 
   # POST /appointments
   def create
-    @appointment = Appointment.new(appointment_params)
-
+    @appointment = current_user.appointments.build(appointment_params)
+    @visit = Visit.find(params[:appointment][:visit_id])
+    @appointment.doc_id = params[:doc_id]
+    @appointment.pat_id = params[:pat_id]
     if @appointment.save
-      redirect_to @appointment, notice: 'Appointment was successfully created.'
+    redirect_to visit_path(@appointment.visit), notice: 'Appointment was successfully created.'
     else
       render :new
     end
@@ -52,12 +58,16 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
   end
 
-  def visit_params
-    params.require(:visit).permit(:date, :note, :pat_id, :doc_id)
-  end
-
   # Only allow a list of trusted parameters through.
   def appointment_params
     params.require(:appointment).permit(:date_opening, :recomendation, :status, :visit_id, :pat_id, :doc_id)
+  end
+
+  def set_visit
+    @visit = Visit.find(params[:id])
+  end
+
+  def visit_params
+    params.require(:visit).permit(:date, :note, :pat_id, :doc_id)
   end
 end

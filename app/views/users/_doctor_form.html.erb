@@ -1,7 +1,8 @@
 <h2>Doctor Form</h2>
 <p>Categories | Doctors | Vizits ?</p>
 <button>My patients (<%= @user.requested_visits.count %>)</button>
-<button>View appointments</button>
-<button>My recomendations - link</button>
+<button><%= link_to 'My vizits', visits_path %></button>
+<p>Given appointments (<%= @user.given_appointments.count %>)</p>
+<button><%= link_to 'My appointments', appointments_path %></button>
 <br>
 <br>

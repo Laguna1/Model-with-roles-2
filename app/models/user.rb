@@ -12,7 +12,8 @@ class User < ApplicationRecord
   has_many :created_visits, class_name: 'Visit', foreign_key: 'pat_id'
   has_many :requested_visits, class_name: 'Visit', foreign_key: 'doc_id'
 
-  has_many :appointments
+  has_many :given_appointments, class_name: 'Appointment', foreign_key: 'doc_id'
+  has_many :received_appointments, class_name: 'Appointment', foreign_key: 'pat_id'
 
   validates :fullname, presence: true, uniqueness: true
   validates :email, uniqueness: true
@@ -56,14 +57,14 @@ class User < ApplicationRecord
     role.name == 'Patient'
   end
 
-  def choose_category
-    collection_select(
-      :user, :category_id, Category.all, :id, :speciality, { prompt: true }
-    ).gets.chomp.to_i
-  end
+  # def choose_category
+  #   collection_select(
+  #     :user, :category_id, Category.all, :id, :speciality, { prompt: true }
+  #   ).gets.chomp.to_i
+  # end
 
-  def choose_doctor_from_category
-    User.where category_id gets.chomp.to_i
-    category(category_id).users.each(&:fullname)
-  end
+  # def choose_doctor_from_category
+  #   User.where category_id gets.chomp.to_i
+  #   category(category_id).users.each(&:fullname)
+  # end
 end

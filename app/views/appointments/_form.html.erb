@@ -11,6 +11,18 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :date_opening %>
+    <%= DateTime.now.strftime("%m/%d/%Y") %>
+  </div>
+
+  <div class="field">
+    <%= form.label :doctors_recomendations %>
+    <%= form.text_field :recomendation %>
+  </div>
+
+ 
+
   <div class="actions">
     <%= form.submit %>
   </div>

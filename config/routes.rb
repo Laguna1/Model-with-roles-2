@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :appointments
   devise_for :users
   get '/welcome/index'
   root 'visits#index'
@@ -13,4 +12,5 @@ Rails.application.routes.draw do
   resources :roles
   resources :categories
   resources :visits
+  resources :appointments
 end

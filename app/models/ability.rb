@@ -13,6 +13,7 @@ class Ability
         visit.try(:user) == user
       end
       can :create, Appointment
+      can :read, Appointment
     elsif user.patient?
       can :read, Appointment
       can :read, User
