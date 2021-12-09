@@ -31666,3 +31666,334 @@ Processing by AppointmentsController#index as HTML
 Completed 200 OK in 107ms (Views: 65.2ms | ActiveRecord: 26.9ms | Allocations: 17248)
 
 
+Started GET "/appointments/2" for ::1 at 2021-12-09 03:55:18 +0200
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mAppointment Load (1.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:58:in `set_appointment'
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/appointments/show.html.erb:2
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/show.html.erb:3
+  [1m[36mVisit Load (1.9ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/show.html.erb:6
+  Rendered appointments/show.html.erb within layouts/application (Duration: 25.6ms | Allocations: 3183)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 46.3ms | Allocations: 6710)
+Completed 200 OK in 79ms (Views: 41.4ms | ActiveRecord: 13.5ms | Allocations: 10550)
+
+
+Started GET "/visits" for ::1 at 2021-12-09 03:55:40 +0200
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (2.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (2.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:3
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  Rendered visits/index.html.erb within layouts/application (Duration: 76.1ms | Allocations: 10567)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 88.6ms | Allocations: 13992)
+Completed 200 OK in 105ms (Views: 73.0ms | ActiveRecord: 21.0ms | Allocations: 16912)
+
+
+Started GET "/appointments" for ::1 at 2021-12-09 03:58:10 +0200
+Processing by AppointmentsController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (3.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:22
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:23
+  [1m[36mVisit Load (2.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:24
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:23
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:24
+  Rendered appointments/index.html.erb within layouts/application (Duration: 36.1ms | Allocations: 5443)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 70.2ms | Allocations: 9476)
+Completed 200 OK in 93ms (Views: 59.9ms | ActiveRecord: 17.3ms | Allocations: 13192)
+
+
+Started GET "/users/6" for ::1 at 2021-12-09 03:58:13 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:31
+  [1m[36mCategory Load (1.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:33
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."doc_id" = $1[0m  [["doc_id", 6]]
+  ↳ app/views/users/_doctor_form.html.erb:3
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments" WHERE "appointments"."doc_id" = $1[0m  [["doc_id", 6]]
+  ↳ app/views/users/_doctor_form.html.erb:5
+  Rendered users/_doctor_form.html.erb (Duration: 16.5ms | Allocations: 2411)
+  Rendered users/show.html.erb within layouts/application (Duration: 26.9ms | Allocations: 4496)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 38.8ms | Allocations: 8045)
+Completed 200 OK in 62ms (Views: 34.3ms | ActiveRecord: 12.9ms | Allocations: 12720)
+
+
+Started GET "/appointments" for ::1 at 2021-12-09 03:58:16 +0200
+Processing by AppointmentsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (1.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:22
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:23
+  [1m[36mVisit Load (2.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:24
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:22
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:23
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:24
+  Rendered appointments/index.html.erb within layouts/application (Duration: 52.5ms | Allocations: 5789)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 66.0ms | Allocations: 9222)
+Completed 200 OK in 84ms (Views: 55.1ms | ActiveRecord: 15.2ms | Allocations: 12142)
+
+
+Started GET "/visits" for ::1 at 2021-12-09 03:58:18 +0200
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (2.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (2.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:3
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  Rendered visits/index.html.erb within layouts/application (Duration: 74.2ms | Allocations: 10417)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 88.4ms | Allocations: 13860)
+Completed 200 OK in 110ms (Views: 72.3ms | ActiveRecord: 25.2ms | Allocations: 17827)
+
+
+Started GET "/visits" for ::1 at 2021-12-09 04:01:08 +0200
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:3
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (52.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:4
+  Rendered visits/index.html.erb within layouts/application (Duration: 78.4ms | Allocations: 10327)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 85.8ms | Allocations: 14390)
+Completed 200 OK in 98ms (Views: 29.7ms | ActiveRecord: 60.1ms | Allocations: 18101)
+
+
+Started GET "/appointments" for ::1 at 2021-12-09 04:01:10 +0200
+Processing by AppointmentsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  Rendered appointments/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 4768)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 5316)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 3.1ms | Allocations: 8777)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `visit' for #<ActionView::Base:0x000000000197d0>
+Did you mean?  visit_url):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <h1>Appointments</h1>
+    4: <% if current_user.id == visit.pat.id || current_user.id == visit.doc.id || current_user.admin? %>
+    5: <table>
+    6:   <thead>
+    7:     <tr>
+  
+app/views/appointments/index.html.erb:4
+Started GET "/appointments" for ::1 at 2021-12-09 04:01:51 +0200
+Processing by AppointmentsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (1.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  Rendered appointments/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 4737)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 4801)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 2.6ms | Allocations: 8487)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `appointment' for #<ActionView::Base:0x00000000019c80>
+Did you mean?  @appointments):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <h1>Appointments</h1>
+    4: <% if current_user.id == appointment.pat.id || current_user.id == appointment.doc.id || current_user.admin? %>
+    5: <table>
+    6:   <thead>
+    7:     <tr>
+  
+app/views/appointments/index.html.erb:4
+Started GET "/appointments" for ::1 at 2021-12-09 04:02:29 +0200
+Processing by AppointmentsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (4.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mVisit Load (1.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:25
+  Rendered appointments/index.html.erb within layouts/application (Duration: 23.7ms | Allocations: 4881)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 77.6ms | Allocations: 8934)
+Completed 200 OK in 98ms (Views: 71.6ms | ActiveRecord: 13.7ms | Allocations: 12648)
+
+
+Started GET "/appointments" for ::1 at 2021-12-09 04:03:24 +0200
+Processing by AppointmentsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49:in `admin?'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (1.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/views/appointments/index.html.erb:18
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mVisit Load (1.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/appointments/index.html.erb:25
+  Rendered appointments/index.html.erb within layouts/application (Duration: 21.0ms | Allocations: 4882)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.3ms | Allocations: 8912)
+Completed 200 OK in 66ms (Views: 38.3ms | ActiveRecord: 10.6ms | Allocations: 12621)
+
+

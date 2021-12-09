@@ -10,12 +10,13 @@
       <th>Doctor</th>
       <th>Patient</th>
       <th>Visit_No</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @appointments.each do |appointment| %>
+    <% if current_user.id == appointment.pat.id || current_user.id == appointment.doc.id || current_user.admin? %>
       <tr>
         <td><%= appointment.date_opening %></td>
         <td><%= appointment.recomendation %></td>
@@ -27,5 +28,5 @@
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
