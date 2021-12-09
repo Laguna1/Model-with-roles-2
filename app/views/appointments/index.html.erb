@@ -2,31 +2,34 @@
 
 <h1>Appointments</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date_opening</th>
-      <th>Recomendations</th>
-      <th>Doctor</th>
-      <th>Patient</th>
-      <th>Visit_No</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @appointments.each do |appointment| %>
-    <% if current_user.id == appointment.pat.id || current_user.id == appointment.doc.id || current_user.admin? %>
-      <tr>
-        <td><%= appointment.date_opening %></td>
-        <td><%= appointment.recomendation %></td>
-        <td><%= appointment.doc.fullname %></td>
-        <td><%= appointment.pat.fullname %></td>
-        <td><%= appointment.visit.id %><td>
-        <td><%= link_to 'Show', appointment %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
-<br>
+ 
+    <table>
+      <thead>
+        <tr>
+          <th>Visit_No</th>
+          <th>Date_opening</th>
+          <th>Recomendations</th>
+          <th>Doctor</th>
+          <th>Patient</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      
+      <% @appointments.each do |appointment| %>
+         <% if current_user.id == appointment.pat.id || current_user.id == appointment.doc.id || current_user.admin? %>
+      <tbody>  
+        <tr>
+          <td><%= appointment.visit.id %></td>
+          <td><%= appointment.date_opening %></td>
+          <td><%= appointment.recomendation %></td>
+          <td><%= appointment.doc.fullname %></td>
+          <td><%= appointment.pat.fullname %></td>
+          <td><%= link_to 'Show', appointment %></td>
+        </tr>
+        <% end %>
+        <% end %>
+      </tbody>
+      
+    </table>
+    
+  
