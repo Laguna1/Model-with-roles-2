@@ -1,4 +1,9 @@
 <h1>All Visits</h1>
+<% if can? :create, @visit %>
+  <%= link_to 'New Visit', new_visit_path %>
+<% end %>
+<br />
+<br />
 <table>
   <thead>
     <tr>
@@ -9,12 +14,12 @@
       <th>Date</th>
       <th>Appointment given?</th>
       <th>Show more...</th>
-      <th colspan="1"></th>
+    
     </tr>
   </thead>
   
     <% @visits.each do |visit| %>
-    <% if current_user.id == visit.pat.id || current_user.id == visit.doc.id %>
+    <% if current_user.admin? || current_user.id == visit.pat.id || current_user.id == visit.doc.id %>
     <tbody>
     <tr>
       <td><%= visit.id %></td>
@@ -24,28 +29,9 @@
       <td><%= visit.date %></td>
       <td>Yes/No</td>
       <td><%= link_to 'Show more', visit_path(visit) %></td>
-      <td></td>
-    </tr>
-    <% elsif current_user.admin? %>
-      <tr>
-      <td><%= visit.id %></td>
-      <td><%= visit.pat.fullname %></td>    
-      <td><%= visit.doc.fullname %> - <%= visit.doc.category.speciality %></td>
-      <td><%= visit.note %></td>
-      <td><%= visit.date %></td>
-      <td>Yes/No</td>
-      <td><%= link_to 'Show more', visit_path(visit) %></td>
-      <td>
-        <%= link_to 'Edit', edit_visit_path(visit) %>
-      </td>
     </tr>
     <% end %>
-    <% end %>
+  <% end %>
   </tbody>
   </table>
-
-
-  
-
-
 <br />

@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Appointments</h1>
-
+<% if can? :create, @appointment %>
+  <%= link_to 'New Appointment', new_appointment_path %>
+<% end %>
+<br />
+<br />
  
     <table>
       <thead>
