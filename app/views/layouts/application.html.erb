@@ -15,7 +15,7 @@
     <header>
     
       <% if user_signed_in? %>
-        Signed in as: <%= current_user.fullname %> "<%= current_user.role.name %>"<br>
+        Signed in as: <%= current_user.fullname %> <strong>"<%= current_user.role.name %>"</strong><br>
         <%= link_to "My Profile Page", current_user %>
         | <%= link_to "Visits", visits_path %>
         | <%= link_to "Appointments", appointments_path %>

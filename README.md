@@ -1,5 +1,6 @@
 # README
 
+### ![ERD diagram](./app/assets/images/erd.jpg)
 There are three main models in this project:
 * `User` - can create an account, log in to the account using a mobile phone number and password, log out of the account.
 * `Role`-
@@ -52,7 +53,14 @@ There are three main models in this project:
 - `Visit.first` - <Visit id: 1, date: "2021-12-12 10:30:00.000000000 +0000", note: "Headache", pat_id: 1, doc_id: 4, created_at: "2021-12-07 00:07:25.766721000 +0000", updated_at: "2021-12-07 02:31:26.303473000 +0000">
 - `User.last(2).first.requested_visits.first.pat.id` - [1]
 
+### How to generate progect`s ERD diagram:
 
+- Add the gem to Gemfile
+ `gem 'rails-erd'`, group: :development
+- Install graphviz dependency in the console
+`sudo apt-get install graphviz`
+- Then run
+`bundle exec erd` or better `rake erd attributes=primary_keys,foreign_keys,content`
 ### Author
 
 👤 **Oksana Petrova**

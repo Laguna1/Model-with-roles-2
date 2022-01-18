@@ -12,7 +12,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/1
   def show
-   @appointment = Appointment.find(params[:id])
+    @appointment = Appointment.find(params[:id])
   end
 
   # GET /appointments/new
@@ -30,7 +30,7 @@ class AppointmentsController < ApplicationController
     @appointment.doc_id = params[:doc_id]
     @appointment.pat_id = params[:pat_id]
     if @appointment.save
-    redirect_to visit_path(@appointment.visit), notice: 'Appointment was successfully created.'
+      redirect_to visit_path(@appointment.visit), notice: 'Appointment was successfully created.'
     else
       render :new
     end
