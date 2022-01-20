@@ -39165,3 +39165,166 @@ Processing by VisitsController#index as HTML
 Completed 200 OK in 411ms (Views: 98.2ms | ActiveRecord: 233.5ms | Allocations: 30379)
 
 
+  [1m[35m (74.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (35.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (920.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "model_with_roles_development"[0m
+  [1m[35m (392.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "model_with_roles_test"[0m
+  [1m[35m (1797.1ms)[0m  [1m[35mCREATE DATABASE "model_with_roles_development" ENCODING = 'unicode'[0m
+  [1m[35m (1159.3ms)[0m  [1m[35mCREATE DATABASE "model_with_roles_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (53.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE[0m
+  [1m[35m (186.4ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "date_opening" timestamp, "recomendation" character varying, "status" boolean DEFAULT FALSE, "pat_id" bigint NOT NULL, "doc_id" bigint NOT NULL, "visit_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (59.0ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_doc_id" ON "appointments" ("doc_id")[0m
+  [1m[35m (63.8ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_pat_id" ON "appointments" ("pat_id")[0m
+  [1m[35m (63.9ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_visit_id" ON "appointments" ("visit_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (161.5ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "speciality" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "roles" CASCADE[0m
+  [1m[35m (138.9ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (115.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fullname" character varying, "role_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "mobile_no" character varying, "address" character varying, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "category_id" bigint)[0m
+  [1m[35m (86.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_category_id" ON "users" ("category_id")[0m
+  [1m[35m (97.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (85.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (75.2ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "visits" CASCADE[0m
+  [1m[35m (160.9ms)[0m  [1m[35mCREATE TABLE "visits" ("id" bigserial primary key, "date" timestamp, "note" character varying, "pat_id" bigint NOT NULL, "doc_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (74.8ms)[0m  [1m[35mCREATE INDEX "index_visits_on_doc_id" ON "visits" ("doc_id")[0m
+  [1m[35m (75.8ms)[0m  [1m[35mCREATE INDEX "index_visits_on_pat_id" ON "visits" ("pat_id")[0m
+  [1m[35m (30.4ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_2b93052b63"
+FOREIGN KEY ("doc_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (8.6ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_543d66d8ee"
+FOREIGN KEY ("pat_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (8.6ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_a1c85e2a24"
+FOREIGN KEY ("visit_id")
+  REFERENCES "visits" ("id")
+[0m
+  [1m[35m (8.7ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_829251d812"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (64.2ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+[0m
+  [1m[35m (8.8ms)[0m  [1m[35mALTER TABLE "visits" ADD CONSTRAINT "fk_rails_3d517c09c8"
+FOREIGN KEY ("doc_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (9.4ms)[0m  [1m[35mALTER TABLE "visits" ADD CONSTRAINT "fk_rails_e2cb941098"
+FOREIGN KEY ("pat_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (128.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (14.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20211208224734)[0m
+  [1m[35m (9.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20211111145614),
+(20211111145656),
+(20211111152024),
+(20211111154639),
+(20211111183749),
+(20211112192303),
+(20211112214949),
+(20211206233304);
+
+[0m
+  [1m[35m (129.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-20 18:09:06.997742"], ["updated_at", "2022-01-20 18:09:06.997742"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5abbe3bdd63bff01b887c8a09c50d758df1cf7a2"], ["created_at", "2022-01-20 18:09:07.015394"], ["updated_at", "2022-01-20 18:09:07.015394"]]
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE[0m
+  [1m[35m (179.9ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "date_opening" timestamp, "recomendation" character varying, "status" boolean DEFAULT FALSE, "pat_id" bigint NOT NULL, "doc_id" bigint NOT NULL, "visit_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (64.0ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_doc_id" ON "appointments" ("doc_id")[0m
+  [1m[35m (62.6ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_pat_id" ON "appointments" ("pat_id")[0m
+  [1m[35m (73.5ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_visit_id" ON "appointments" ("visit_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (190.4ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "speciality" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "roles" CASCADE[0m
+  [1m[35m (148.6ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" character varying, "description" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (132.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fullname" character varying, "role_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "mobile_no" character varying, "address" character varying, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "category_id" bigint)[0m
+  [1m[35m (73.2ms)[0m  [1m[35mCREATE INDEX "index_users_on_category_id" ON "users" ("category_id")[0m
+  [1m[35m (84.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (63.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (85.2ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "visits" CASCADE[0m
+  [1m[35m (179.2ms)[0m  [1m[35mCREATE TABLE "visits" ("id" bigserial primary key, "date" timestamp, "note" character varying, "pat_id" bigint NOT NULL, "doc_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (74.1ms)[0m  [1m[35mCREATE INDEX "index_visits_on_doc_id" ON "visits" ("doc_id")[0m
+  [1m[35m (73.2ms)[0m  [1m[35mCREATE INDEX "index_visits_on_pat_id" ON "visits" ("pat_id")[0m
+  [1m[35m (7.3ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_2b93052b63"
+FOREIGN KEY ("doc_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (8.9ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_543d66d8ee"
+FOREIGN KEY ("pat_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (8.3ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_a1c85e2a24"
+FOREIGN KEY ("visit_id")
+  REFERENCES "visits" ("id")
+[0m
+  [1m[35m (8.5ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_829251d812"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (8.5ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+[0m
+  [1m[35m (41.5ms)[0m  [1m[35mALTER TABLE "visits" ADD CONSTRAINT "fk_rails_3d517c09c8"
+FOREIGN KEY ("doc_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (6.1ms)[0m  [1m[35mALTER TABLE "visits" ADD CONSTRAINT "fk_rails_e2cb941098"
+FOREIGN KEY ("pat_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (138.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (11.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20211208224734)[0m
+  [1m[35m (9.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20211111145614),
+(20211111145656),
+(20211111152024),
+(20211111154639),
+(20211111183749),
+(20211112192303),
+(20211112214949),
+(20211206233304);
+
+[0m
+  [1m[35m (149.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-20 18:09:09.076249"], ["updated_at", "2022-01-20 18:09:09.076249"]]
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-01-20 18:09:09.100811"], ["key", "environment"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5abbe3bdd63bff01b887c8a09c50d758df1cf7a2"], ["created_at", "2022-01-20 18:09:09.120843"], ["updated_at", "2022-01-20 18:09:09.120843"]]
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6848942048871332130)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6848942048871332130)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

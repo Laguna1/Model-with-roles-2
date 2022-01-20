@@ -60,7 +60,7 @@ There are three main models in this project:
 - Install graphviz dependency in the console
 `sudo apt-get install graphviz`
 - Then run
-`bundle exec erd` or better `rake erd attributes=primary_keys,foreign_keys,content`
+`bundle` and `rake erd attributes=primary_keys,foreign_keys,content` or `rake erd attributes=primary_keys,foreign_keys,inheritance,content`
 ### Author
 
 👤 **Oksana Petrova**
