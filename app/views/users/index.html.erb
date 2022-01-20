@@ -8,6 +8,7 @@
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Fullname</th>
       <th>Mobile number</th>
       <th>Address</th>
@@ -21,6 +22,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= user.id %></td>
         <td><%= link_to user_path(user) do %>
                <%= user.fullname %>
             <% end %>
