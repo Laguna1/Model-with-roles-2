@@ -52,6 +52,15 @@ There are three main models in this project:
 - `User.fourth.requested_visits.first.pat.role`
 - `Visit.first` - <Visit id: 1, date: "2021-12-12 10:30:00.000000000 +0000", note: "Headache", pat_id: 1, doc_id: 4, created_at: "2021-12-07 00:07:25.766721000 +0000", updated_at: "2021-12-07 02:31:26.303473000 +0000">
 - `User.last(2).first.requested_visits.first.pat.id` - [1]
+- `a=Appointment.first` - <Appointment id: 1, date_opening: "2022-01-20 19:43:46.676751000 +0000"...
+- `User.find_by(id: 6)` - #<User id: 6, fullname: "Doctor Dulitl", role_id: 2, created_at: "2022-01-20 19:14:09.963519000 +0000", updated_at: "2022-01-20 19:39:01.423398000 +0000", mobile_no: "380692222222", address: "Kharkiv, Danilevskogo str. 9", email: "dulitl@example.com", category_id: 9>
+- `a.doc_id` - 6
+- `a.pat_id` - 2
+- `a.doc.fullname` - "Doctor Dulitl"
+- `a.pat.fullname`
+- `User.find_by(id: 6).given_appointments.count`
+- `User.find_by(id: 6).given_appointments.first.recomendation` - "More rest, more exercizes"
+- `User.find_by(id: 2).received_appointments.first.recomendation` - "More rest, more exercizes"
 
 ### How to generate progect`s ERD diagram:
 

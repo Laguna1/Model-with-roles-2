@@ -26,7 +26,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   def create
     @appointment = current_user.appointments.build(appointment_params)
-    @visit = Visit.find(params[:appointment][:visit_id])
+    @visit = Visit.find(params[:appointment][:visit_id][:pat_id][:doc_id])
     @appointment.doc_id = params[:doc_id]
     @appointment.pat_id = params[:pat_id]
     if @appointment.save
